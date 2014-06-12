@@ -1,0 +1,2 @@
+#$ -q all.q@@bc3hosts,all.q@@bc4hosts
+#$ -q all.q@bc501.hpc.vpl.nii.ac.jp,all.q@bc502.hpc.vpl.nii.ac.jp,all.q@bc503.hpc.vpl.nii.ac.jp,all.q@bc504.hpc.vpl.nii.ac.jp,all.q@bc505.hpc.vpl.nii.ac.jp
