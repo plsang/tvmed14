@@ -15,7 +15,7 @@ function [ X ] = densetraj_extract_mbh( video_file, dt_type, start_frame, end_fr
 		case 'dt'
 			densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_MBH';
 		case 'idt'
-			densetraj = '/net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_MBH';
+			densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_MBH';
 		otherwise
 			error('Unsupported Dense Trajectory Type\n');
 	end
