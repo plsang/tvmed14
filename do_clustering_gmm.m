@@ -4,7 +4,7 @@ function codebook = do_clustering_gmm(proj_dir, feat_pat, dimred, num_features, 
 	
 	% proj_dir = '/net/per610a/export/das11f/plsang/ucf101'
 	set_env;
-	
+		
     % ann kmeans parameters
     cluster_count = 256;
     %%maxcomps = ceil(cluster_count/4);
@@ -32,6 +32,14 @@ function codebook = do_clustering_gmm(proj_dir, feat_pat, dimred, num_features, 
 	if ~exist(f_selected_feats, 'file'),
 		error('File %s not found!\n', f_selected_feats);
 	end
+	
+	%% logging
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
+	msg = sprintf('Start running %s(%s, %s, %d)', mfilename, proj_dir, feat_pat, dimred);
+	logmsg(logfile, msg);	
+	tic;
+
 	
 	fprintf('Loading selected features <%s>...\n', f_selected_feats);
 	load(f_selected_feats, 'feats');
@@ -126,6 +134,13 @@ function codebook = do_clustering_gmm(proj_dir, feat_pat, dimred, num_features, 
 	fprintf('Done training codebook!\n');
 	
     save(output_file, 'codebook', '-v7.3');
+	
+    elapsed = toc;
+	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
+	
+	msg = sprintf('Finish running %s(%s, %s, %d). Elapsed time: %s', mfilename, proj_dir, feat_pat, dimred, elapsed_str);
+	logmsg(logfile, msg);
+
     
 end
 
