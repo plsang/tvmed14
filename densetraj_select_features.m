@@ -2,6 +2,8 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
 %SELECT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
 
+	set_env;
+	
     % parameters
 	if ~exist('max_features', 'var'),
 		max_features = 1000000;
