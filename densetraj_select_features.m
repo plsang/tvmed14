@@ -19,7 +19,8 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
 	
     video_sampling_rate = 1;
 	sample_length = 120; % frames
-	 
+	ensure_coef = 1.1;
+	
 	 %% TODO: using unified metadata
 	f_metadata = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat';
 	fprintf('Loading metadata...\n');
@@ -53,7 +54,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
     selected_videos = list_video(selected_index);
 	
 	
-	max_features_per_video = ceil(1.05*max_features/length(selected_videos));
+	max_features_per_video = ceil(ensure_coef*max_features/length(selected_videos));
 	feats = cell(length(selected_videos), 1);
 	
     parfor ii = 1:length(selected_videos),
