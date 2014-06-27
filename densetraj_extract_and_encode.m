@@ -1,11 +1,22 @@
-function [ code, code_fk ] = densetraj_extract_and_encode( video_file, start_frame, end_frame, codebook, kdtree, codebook_gmm, low_proj, bow_encoding, fc_encoding)
+function code = densetraj_extract_and_encode( dt_type, video_file, codebook, low_proj)
 %EXTRACT_AND_ENCODE Summary of this function goes here
 %   Detailed explanation goes here
+	
+	% dt_type: dt, idt
 	
     % densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_FULL';
 	% densetraj = '/net/per900a/raid0/plsang/software/dense_trajectory_release_v1.1/release/DenseTrack';
 	% densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack';  % same with DenseTrack_FULL
-	densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_MBH';
+	% densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_MBH';
+	
+	switch dt_type,
+		case 'dt'
+			densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_MBH';
+		case 'idt'
+			densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_MBH';
+		otherwise
+			error('Unsupported Dense Trajectory Type\n');
+	end
 	
 	%% fisher initialization
 	fisher_params.grad_weights = false;		% "soft" BOW
@@ -14,11 +25,11 @@ function [ code, code_fk ] = densetraj_extract_and_encode( video_file, start_fra
     fisher_params.alpha = single(1.0);		% power normalization (set to 1 to disable)
     fisher_params.pnorm = single(0.0);		% norm regularisation (set to 0 to disable)
 	
-	cpp_handle = mexFisherEncodeHelperSP('init', codebook_gmm, fisher_params);
+	cpp_handle = mexFisherEncodeHelperSP('init', codebook, fisher_params);
 	
     % Set up the mpeg audio decode command as a readable stream
-    cmd = [densetraj, ' ', video_file, ' -S ', num2str(start_frame), ' -E ', num2str(end_frame)];
-	% cmd = [densetraj, ' ', video_file];
+    % cmd = [densetraj, ' ', video_file, ' -S ', num2str(start_frame), ' -E ', num2str(end_frame)];
+	cmd = [densetraj, ' ', video_file];
 
     % open pipe
     p = popenr(cmd);
@@ -59,24 +70,15 @@ function [ code, code_fk ] = densetraj_extract_and_encode( video_file, start_fra
       if listPtr > BLOCK_SIZE,
           % kcb encoding
                
-		   if bow_encoding == 1,
-			  code_ = kcb_encode(X, codebook, kdtree);
-			 
-			  code = code + code_;
-		   end
-		  
-			% fisher encoding
-		 if fc_encoding == 1,
-			if ~isempty(low_proj),	
-				mexFisherEncodeHelperSP('accumulate', cpp_handle, single(low_proj * X));
-			else
-				mexFisherEncodeHelperSP('accumulate', cpp_handle, single(X));
-			end
-		 end 
-		   
-		  
-          listPtr = 1;
-          X(:,:) = 0;
+		 
+		if ~isempty(low_proj),	
+			mexFisherEncodeHelperSP('accumulate', cpp_handle, single(low_proj * X));
+		else
+			mexFisherEncodeHelperSP('accumulate', cpp_handle, single(X));
+		end
+				  
+	    listPtr = 1;
+	    X(:,:) = 0;
           
       end
     
@@ -86,38 +88,29 @@ function [ code, code_fk ] = densetraj_extract_and_encode( video_file, start_fra
         
         X(:, listPtr:end) = [];   % remove unused slots
         
-		if bow_encoding == 1,
-			  code_ = kcb_encode(X, codebook, kdtree);
-			 
-			  code = code + code_;
-		end
-		
-		 % fisher encoding
-		if fc_encoding == 1,
-			if ~isempty(low_proj),	
-				mexFisherEncodeHelperSP('accumulate', cpp_handle, single(low_proj * X));
-			else
-				mexFisherEncodeHelperSP('accumulate', cpp_handle, single(X));
-			end
+		if ~isempty(low_proj),	
+			mexFisherEncodeHelperSP('accumulate', cpp_handle, single(low_proj * X));
+		else
+			mexFisherEncodeHelperSP('accumulate', cpp_handle, single(X));
 		end
 		
     end
     
-	code_fk = mexFisherEncodeHelperSP('getfk', cpp_handle);
+	code = mexFisherEncodeHelperSP('getfk', cpp_handle);
     
 	mexFisherEncodeHelperSP('clear', cpp_handle);
 	
 	% power normalization (with alpha = 0.5) 		
-	code_fk = sign(code_fk) .* sqrt(abs(code_fk));    
+	% code = sign(code) .* sqrt(abs(code));    
 	
     % Close pipe
     popenr(p, -1);
 
 end
 
-
 function log (msg)
-	fh = fopen('/net/per900a/raid0/plsang/tools/kaori-secode-med13/log/densetraj_extract_and_encode.log', 'a+');
-	fprintf(fh, [msg, '\n']);
+	logfile = [mfilename('fullpath'), '.log'];
+    fh = fopen(logfile, 'a+');
+    fprintf(fh, ['[', datestr(now, 'yyyy/mm/dd HH:MM:SS'), '] ', msg, '\n']);
 	fclose(fh);
 end
