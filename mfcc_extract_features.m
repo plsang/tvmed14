@@ -1,7 +1,7 @@
 function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame)
 %EXTRACT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
-
+	
 	if ~exist('toolbox', 'var'),
 		toolbox = 'kamil';
 	end
@@ -91,6 +91,7 @@ function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame
 			%feat = melcepst(speech , fs, 'e0dD'); % include log energy, 0th cepstral coef, delta and delta-delta coefs
 			feat = feat';						  % transpose to column vectors;
 		elseif strcmp(toolbox, 'rastamat'),
+			disp('abb');
 			cep2 = melfcc(speech, fs, 'maxfreq', 3700, 'numcep', 13, 'nbands', 20, 'fbtype', 'fcmel', 'dcttype', 1, 'usecmp', 1, 'wintime', 0.025, 'hoptime', 0.010, 'preemph', 0.97, 'dither', 1);
 			del1 = deltas(cep2);
 			%del2 = deltas(deltas(cep2,5),5);

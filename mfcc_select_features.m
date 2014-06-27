@@ -2,10 +2,25 @@ function mfcc_select_features( algo )
 %SELECT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
 
+	set_env;
+	
 	% parameters
     sample_length = 1000; % frames
     video_sampling_rate = 1;
 	max_features = 1000000;
+	ensure_coef = 1.1;
+	
+	if ~exist('algo', 'var'),
+		algo = 'rastamat';
+	end
+	
+	%% logging
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
+	msg = sprintf('Start running %s(%s)', mfilename, algo);
+	logmsg(logfile, msg);	
+	tic;
+
 	
 	f_metadata = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat';
 	fprintf('Loading metadata...\n');
@@ -14,11 +29,7 @@ function mfcc_select_features( algo )
 	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST';
 	
-	if ~exist('algo', 'var'),
-		algo = 'kamil';
-	end
-	
-	feat_pat = sprintf('mfcc.%s', algo');
+	feat_pat = sprintf('mfcc.bg.%s', algo');
 
 	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/selected_feats_%d.mat', feat_pat, max_features);
 	if exist(output_file, 'file'),
@@ -29,33 +40,35 @@ function mfcc_select_features( algo )
 	if ~exist(output_dir, 'file'),
 		mkdir(output_dir);
 	end
-	
     
+	% csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
+	% eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
+	% f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
 
-    
-	csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
-	eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
-	f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
-
-	f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
-	f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
+	% f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
+	% f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
 	
-	list_eventvideo = load_video_list(f_eventvideo_csv);
-	list_bgvideo = load_video_list(f_eventbg_csv);
+	% list_eventvideo = load_video_list(f_eventvideo_csv);
+	% list_bgvideo = load_video_list(f_eventbg_csv);
 	
-	list_video = [list_eventvideo, list_bgvideo];
+	% list_video = [list_eventvideo, list_bgvideo];	
+	
+	fprintf('Loading metadata...\n');
+	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
+	load(medmd_file, 'MEDMD'); 
+	
+	clips = MEDMD.EventBG.default.clips;
+	list_video = unique(clips);	% 4992 clips
 	
 	num_selected_videos = ceil(video_sampling_rate * length( list_video ));
 	rand_index = randperm(length(list_video));
 	selected_index = rand_index(1:num_selected_videos);
     selected_videos = list_video(selected_index);
+
+	max_features_per_video = ceil(ensure_coef * max_features / length(selected_videos));
 	
-	
-	max_features_per_video = ceil(1.05*max_features/length(selected_videos));
-	
-    
     feats = cell(length(selected_videos), 1);
-	length(selected_videos)
+	%length(selected_videos)
     
     parfor ii = 1:length(selected_videos),
         video_name = selected_videos{ii};
@@ -72,7 +85,7 @@ function mfcc_select_features( algo )
             end_frame = start_frame + sample_length;
         end
         
-        feat = mfcc_extract_features(video_file, start_frame, end_frame, algo);
+        feat = mfcc_extract_features(video_file, algo, start_frame, end_frame);
 		
 		if isempty(feat), continue; end;
         
@@ -93,6 +106,13 @@ function mfcc_select_features( algo )
 
 	
     save(output_file, 'feats', '-v7.3');
-    
+
+    elapsed = toc;
+	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
+	
+	msg = sprintf('Finish running %s(%s). Elapsed time: %s', mfilename, algo, elapsed_str);
+	logmsg(logfile, msg);
+
+	
 end
 
