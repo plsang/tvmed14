@@ -1,4 +1,4 @@
-function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
+function mfcc_encode_home( exp_ann, dimred, algo, start_seg, end_seg )
 %ENCODE Summary of this function goes here
 %   Detailed explanation goes here
 %% kf_dir_name: name of keyframe folder, e.g. keyframe-60 for segment length of 60s   
@@ -12,7 +12,7 @@ function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
 	codebook_gmm_size = 256;
 	
 	feat_dim = 39;
-	dimred = 26;
+	%dimred = 26;
 	
 	video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST';	% for mfcc 
 	fea_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/feature';
@@ -20,8 +20,6 @@ function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
 	
 	fprintf('Loading basic metadata...\n');
 	f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat');  % for kinddevel only
-	
-	fprintf('Loading basic metadata...\n');
 	metadata = load(f_metadata, 'metadata');
 	metadata = metadata.metadata;
 	
@@ -37,6 +35,10 @@ function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
 	clips = [train_clips, test_clips];
     
 	feature_ext_fc = sprintf('mfcc.bg.%s.cb%d.fc', algo, codebook_gmm_size);
+	
+	if dimred > 0,
+		feature_ext_fc = sprintf('mfcc.bg.%s.cb%d.fc.pca', algo, codebook_gmm_size);
+	end
 	
 	output_dir_fc = sprintf('%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
     if ~exist(output_dir_fc, 'file'),
@@ -59,11 +61,11 @@ function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
     codebook_gmm_ = load(codebook_gmm_file, 'codebook');
     codebook_gmm = codebook_gmm_.codebook;
 	
-	if start_seg < 1,
+	if ~exist('start_seg', 'var') || start_seg < 1,
         start_seg = 1;
     end
     
-    if end_seg > length(clips),
+    if ~exist('end_seg', 'var') || end_seg > length(clips),
         end_seg = length(clips);
     end
 	
@@ -76,7 +78,7 @@ function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
 		output_fc_file = sprintf('%s/%s/%s.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
 		
 		if exist(output_fc_file, 'file') ,
-            fprintf('File [%s] and [%s] already exist. Skipped!!\n', output_file, output_fc_file);
+            fprintf('File [%s] already exist. Skipped!!\n', output_fc_file);
             continue;
         end
         
@@ -87,7 +89,7 @@ function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
 		if isempty(feat),
 			continue;
 		else			    
-			code = fc_encode(feat, codebook_gmm, []);	
+			code = fc_encode(feat, codebook_gmm, low_proj);	
 		end
         
 		par_save(output_fc_file, code); 
