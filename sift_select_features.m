@@ -6,10 +6,18 @@ function sift_select_features( sift_algo, param )
 	
 	%%
 
+	set_env;
+	
     max_features = 1000000;
 	video_sampling_rate = 1;
     sample_length = 5; % frames
     ensure_coef = 1.1;
+	
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
+	msg = sprintf('Start running %s(%s, %s)', mfilename, sift_algo, param);
+	logmsg(logfile, msg);
+	tic;
 	
 	f_metadata = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat';
 	fprintf('Loading metadata...\n');
@@ -110,5 +118,9 @@ function sift_select_features( sift_algo, param )
 	fprintf('Saving selected features to [%s]...\n', output_file);
     save(output_file, 'feats', '-v7.3');
     
+	elapsed = toc;
+	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
+	msg = sprintf('Finish running %s(%s, %s). Elapsed time: %s', mfilename, sift_algo, param, elapsed_str);
+	logmsg(logfile, msg);
 end
 
