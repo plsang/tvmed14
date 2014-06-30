@@ -9,14 +9,10 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
 	
     % setting
     set_env;
-    
-    %bow_encoding = 1;	
-	%fc_encoding = 0;	
 	dimred = 128;
 	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST-RSZ';
 	fea_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/feature';
-	%f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_%s_sorted', sz_pat);
 	
 	f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat');  % for kinddevel only
 	
@@ -37,9 +33,9 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
 	
 	codebook_gmm_size = 256;
     
-	feature_ext_fc = sprintf('densetrajectory.mbh.cb%d.fc', codebook_gmm_size);
+	feature_ext_fc = sprintf('densetraj.mbh.%s.cb%d.fc', dt_type, codebook_gmm_size);
 	if dimred > 0,
-		feature_ext_fc = sprintf('densetrajectory.mbh.cb%d.fc.pca', codebook_gmm_size);
+		feature_ext_fc = sprintf('densetraj.mbh.%s.cb%d.fc.pca', dt_type, codebook_gmm_size);
 	end
 
     output_dir_fc = sprintf('%s/%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
@@ -76,8 +72,6 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
 	
         video_file = fullfile(video_dir, metadata.(video_id).ldc_pat);
 		
-		fileparts(metadata.(video_id).ldc_pat);
-		
 		output_fc_file = sprintf('%s/%s/%s.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
 		
         if exist(output_fc_file, 'file') ,
@@ -94,6 +88,6 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
     end
     
     %toc
-	quit
+	quit;
 end
 
