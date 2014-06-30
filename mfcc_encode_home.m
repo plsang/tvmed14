@@ -14,6 +14,12 @@ function mfcc_encode_home( exp_ann, dimred, algo, start_seg, end_seg )
 	feat_dim = 39;
 	%dimred = 26;
 	
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
+	msg = sprintf('Start running %s(%s, %d)', mfilename, exp_ann, dimred);
+	logmsg(logfile, msg);
+	tic;
+	
 	video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST';	% for mfcc 
 	fea_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/feature';
 	%f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_%s_sorted', sz_pat);
@@ -95,7 +101,12 @@ function mfcc_encode_home( exp_ann, dimred, algo, start_seg, end_seg )
 		par_save(output_fc_file, code); 
 		
     end
-
 	
+	
+	elapsed = toc;
+	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
+	
+	msg = sprintf('Finish running %s(%s, %d). Elapsed time: %s', mfilename, exp_ann, dimred, elapsed_str);
+	logmsg(logfile, msg);
 end
 
