@@ -80,8 +80,8 @@ function [ X ] = densetraj_extract_mbh( video_file, dt_type, start_frame, end_fr
 end
 
 function log (msg)
-	fh = fopen('/net/per900a/raid0/plsang/tools/kaori-secode-ucf101/log/densetraj_extract_mbh.log', 'a+');
-	fprintf(fh, msg);
-	fprintf(fh, '\r\n');
+	logfile = [mfilename('fullpath'), '.log'];
+    fh = fopen(logfile, 'a+');
+    fprintf(fh, ['[', datestr(now, 'yyyy/mm/dd HH:MM:SS'), '] ', msg, '\n']);
 	fclose(fh);
 end
