@@ -114,7 +114,7 @@ function sift_encode_fc_home( proj_name, exp_ann, sift_algo, param, codebook_siz
             
             % if more than 50% of points are empty --> possibley empty image
             if isempty(descrs) || sum(all(descrs == 0, 1)) > 0.5*size(descrs, 2),
-                warning('Maybe blank image...[%s]. Skipped!\n', img_name);
+                %warning('Maybe blank image...[%s]. Skipped!\n', img_name);
                 continue;
             end
 			
@@ -124,6 +124,9 @@ function sift_encode_fc_home( proj_name, exp_ann, sift_algo, param, codebook_siz
         
 		code = cat(2, code{:});
 		code = mean(code, 2);
+		
+		% apply power normalization again
+		code = sign(code) .* sqrt(abs(code));
 		
         par_save(output_file, code); % MATLAB don't allow to save inside parfor loop             
         
