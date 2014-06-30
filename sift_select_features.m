@@ -9,7 +9,8 @@ function sift_select_features( sift_algo, param )
     max_features = 1000000;
 	video_sampling_rate = 1;
     sample_length = 5; % frames
-    
+    ensure_coef = 1.1;
+	
 	f_metadata = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat';
 	fprintf('Loading metadata...\n');
 	metadata_ = load(f_metadata, 'metadata');
@@ -17,17 +18,24 @@ function sift_select_features( sift_algo, param )
 	
     kf_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/keyframes';
 	
-    csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
-	eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
-	f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
+    % csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
+	% eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
+	% f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
 
-	f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
-	f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
+	% f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
+	% f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
 	
-	list_eventvideo = load_video_list(f_eventvideo_csv);
-	list_bgvideo = load_video_list(f_eventbg_csv);
+	% list_eventvideo = load_video_list(f_eventvideo_csv);
+	% list_bgvideo = load_video_list(f_eventbg_csv);
 	
-	list_video = [list_eventvideo, list_bgvideo];
+	% list_video = [list_eventvideo, list_bgvideo];
+	
+	fprintf('Loading metadata...\n');
+	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
+	load(medmd_file, 'MEDMD'); 
+	
+	clips = MEDMD.EventBG.default.clips;
+	list_video = unique(clips);	% 4992 clips
 	
 	num_selected_videos = ceil(video_sampling_rate * length( list_video ));
 	rand_index = randperm(length(list_video));
@@ -35,12 +43,12 @@ function sift_select_features( sift_algo, param )
     selected_videos = list_video(selected_index);
 	
 	
-	max_features_per_video = ceil(1.05*max_features/length(selected_videos));
+	max_features_per_video = ceil(ensure_coef * max_features/length(selected_videos));
     
     
     feats = cell(length(selected_videos), 1);
 
-	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), max_features);
+	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.bg.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), max_features);
 	if exist(output_file),
 		fprintf('File [%s] already exist. Skipped\n', output_file);
 		return;
@@ -94,8 +102,9 @@ function sift_select_features( sift_algo, param )
 
 	output_dir = fileparts(output_file);
 	if ~exist(output_dir, 'file'),
-		cmd = sprintf('mkdir -p %s', output_dir);
-		system(cmd);
+		mkdir(output_dir);
+		%cmd = sprintf('mkdir -p %s', output_dir);
+		%system(cmd);
 	end
 	
 	fprintf('Saving selected features to [%s]...\n', output_file);
