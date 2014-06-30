@@ -1,4 +1,4 @@
-function mfcc_encode_home( segment_ann, sz_pat, algo, start_seg, end_seg )
+function mfcc_encode_home( exp_ann, algo, start_seg, end_seg )
 %ENCODE Summary of this function goes here
 %   Detailed explanation goes here
 %% kf_dir_name: name of keyframe folder, e.g. keyframe-60 for segment length of 60s   
@@ -6,136 +6,94 @@ function mfcc_encode_home( segment_ann, sz_pat, algo, start_seg, end_seg )
 	set_env;
 
 	if ~exist('algo', 'var'),
-		algo = 'kamil';
+		algo = 'rastamat';
 	end
-	
-	% encoding type
-    codebook_size = 4000;
 	
 	codebook_gmm_size = 256;
 	
 	feat_dim = 39;
+	dimred = 26;
 	
 	video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST';	% for mfcc 
 	fea_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/feature';
 	%f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_%s_sorted', sz_pat);
-	f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_%s', sz_pat);
 	
 	fprintf('Loading basic metadata...\n');
-	%metadata = load(f_metadata, 'sorted_metadata');
-	%metadata = metadata.sorted_metadata;
+	f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat');  % for kinddevel only
 	
+	fprintf('Loading basic metadata...\n');
 	metadata = load(f_metadata, 'metadata');
 	metadata = metadata.metadata;
 	
-	fprintf('Loading segment metadata...\n');
-	segments = load_segments( segment_ann, sz_pat);
+	fprintf('Loading metadata...\n');
+	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
+	load(medmd_file, 'MEDMD'); 
 	
-    feature_ext = sprintf('mfcc.%s.cb%d.soft', algo, codebook_size);
-
-    output_dir = sprintf('%s/%s/%s/%s', fea_dir, segment_ann, feature_ext, sz_pat);
-    if ~exist(output_dir, 'file'),
-        mkdir(output_dir);
-    end
+	train_clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
+	train_clips = unique(train_clips);
+	
+	test_clips = MEDMD.RefTest.KINDREDTEST.clips;
+	
+	clips = [train_clips, test_clips];
     
-	feature_ext_fc = sprintf('mfcc.%s.cb%d.fc', algo, codebook_gmm_size);
-
-    output_dir_fc = sprintf('%s/%s/%s/%s', fea_dir, segment_ann, feature_ext_fc, sz_pat);
+	feature_ext_fc = sprintf('mfcc.bg.%s.cb%d.fc', algo, codebook_gmm_size);
+	
+	output_dir_fc = sprintf('%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
     if ~exist(output_dir_fc, 'file'),
         mkdir(output_dir_fc);
     end
+
+	low_proj = [];
 	
-    codebook_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.%s/data/codebook.kmeans.%d.%d.mat', algo, codebook_size, feat_dim);
-    codebook_ = load(codebook_file, 'codebook');
-    codebook = codebook_.codebook;
-    
-    kdtree = vl_kdtreebuild(codebook);
-    
+	if dimred > 0,
+		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.bg.%s/data/codebook.gmm.%d.%d.mat', algo, codebook_gmm_size, dimred);
+		low_proj_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.bg.%s/data/lowproj.%d.%d.mat', algo, dimred, feat_dim);
+		low_proj_ = load(low_proj_file, 'low_proj');
+		low_proj = low_proj_.low_proj;
+	else
+		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.bg.%s/data/codebook.gmm.%d.%d.mat', algo, codebook_gmm_size, feat_dim);
+		codebook_gmm_ = load(codebook_gmm_file, 'codebook');
+		codebook_gmm = codebook_gmm_.codebook;
+	end
 	
-	% loading gmm codebook
-	
-	codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.%s/data/codebook.gmm.%d.%d.mat', algo, codebook_gmm_size, feat_dim);
     codebook_gmm_ = load(codebook_gmm_file, 'codebook');
     codebook_gmm = codebook_gmm_.codebook;
-
+	
 	if start_seg < 1,
         start_seg = 1;
     end
     
-    if end_seg > length(segments),
-        end_seg = length(segments);
+    if end_seg > length(clips),
+        end_seg = length(clips);
     end
-    
-   
-	pattern =  '(?<video>\w+)\.\w+\.frame(?<start_f>\d+)_(?<end_f>\d+)';
 	
     parfor ii = start_seg:end_seg,
-        segment_id = segments{ii};
-		
-		info = regexp(segment_id, pattern, 'names');
-		
-		video_id = info.video;
+        
+		video_id = clips{ii};
 	
         video_file = fullfile(video_dir, metadata.(video_id).ldc_pat);
-		
-        output_file = [output_dir, '/', video_id, '/', video_id, '.mat'];
-		
-		output_fc_file = [output_dir_fc, '/', video_id, '/', video_id, '.mat'];
         
-		if exist(output_file, 'file') && exist(output_fc_file, 'file') ,
+		output_fc_file = sprintf('%s/%s/%s.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
+		
+		if exist(output_fc_file, 'file') ,
             fprintf('File [%s] and [%s] already exist. Skipped!!\n', output_file, output_fc_file);
             continue;
         end
         
-		start_frame = str2num(info.start_f);
-		
-		end_frame = str2num(info.end_f);
+        fprintf(' [%d --> %d --> %d] Extracting features & Encoding for [%s]...\n', start_seg, ii, end_seg, video_id);
         
-		if ~exist([output_dir '/' info.video], 'file'),
-			mkdir([output_dir '/' info.video]);
-		end
-        
-        fprintf(' [%d --> %d --> %d] Extracting features & Encoding for [%s]...\n', start_seg, ii, end_seg, segment_id);
-        
-		if strcmp(segment_ann, 'segment-100000'),
-			feat = mfcc_extract_features(video_file, algo);
-		else
-			feat = mfcc_extract_features(video_file, algo, start_frame, end_frame);
-		end
+		feat = mfcc_extract_features(video_file, algo);
 		
 		if isempty(feat),
 			continue;
 		else			    
-			code = kcb_encode(feat, codebook, kdtree);	
-			code_fk = fc_encode(feat, codebook_gmm, []);	
+			code = fc_encode(feat, codebook_gmm, []);	
 		end
         
-		% output code
-        output_vdir = [output_dir, '/', video_id];
-        if ~exist(output_vdir, 'file'),
-            mkdir(output_vdir);
-        end
-        
-		output_vdir_fc = [output_dir_fc, '/', video_id];
-        if ~exist(output_vdir_fc, 'file'),
-            mkdir(output_vdir_fc);
-        end
-		
-        par_save(output_file, code); % MATLAB don't allow to save inside parfor loop          
-		par_save(output_fc_file, code_fk); 
+		par_save(output_fc_file, code); 
 		
     end
 
-end
-
-function par_save( output_file, code )
-  save( output_file, 'code');
-end
-
-function log (msg)
-	fh = fopen('mfcc_encode_home.log', 'a+');
-    msg = [msg, ' at ', datestr(now), '\n'];
-	fprintf(fh, msg);
-	fclose(fh);
+	
 end
 
