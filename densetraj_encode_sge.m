@@ -38,7 +38,7 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
 		feature_ext_fc = sprintf('densetraj.mbh.%s.cb%d.fc.pca', dt_type, codebook_gmm_size);
 	end
 
-    output_dir_fc = sprintf('%s/%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
+    output_dir_fc = sprintf('%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
 	
     if ~exist(output_dir_fc, 'file'),
         mkdir(output_dir_fc);
