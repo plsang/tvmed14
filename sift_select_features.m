@@ -53,6 +53,7 @@ function sift_select_features( sift_algo, param )
 	
 	max_features_per_video = ceil(ensure_coef * max_features/length(selected_videos));
     
+	max_features_per_video
     
     feats = cell(length(selected_videos), 1);
 
@@ -81,12 +82,11 @@ function sift_select_features( sift_algo, param )
 		for jj = selected_idx,
 			img_name = kfs(jj).name;
 			img_path = fullfile(video_kf_dir, img_name);
-			im = imread(img_path);
 			
-			[frames, descrs] = sift_extract_features( im, sift_algo, param );
+			[frames, descrs] = sift_extract_features( img_path, sift_algo, param );
             
             % if more than 50% of points are empty --> possibley empty image
-            if sum(all(descrs == 0, 1)) > 0.5*size(descrs, 2),
+            if isempty(descrs) || sum(all(descrs == 0, 1)) > 0.5*size(descrs, 2),
                 warning('Maybe blank image...[%s]. Skipped!\n', img_name);
                 continue;
             end
