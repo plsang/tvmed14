@@ -39,7 +39,7 @@ function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame
 	%%% update Jul 5th, 2013: supported start frame, end frame
 	% convert frame to timestamp: hh:mm:ss.ms
 	if ~exist('start_frame', 'var') && ~exist('end_frame', 'var'),
-		cmd = sprintf('%s -i %s -y -vn -ac %d -ar 44100 -ab 320k -f wav %s', ffmpeg_bin, filepath, ac_param, tmp_audio_file);
+		cmd = sprintf('%s -i %s -v quiet -y -vn -ac %d -ar 44100 -ab 320k -f wav %s', ffmpeg_bin, filepath, ac_param, tmp_audio_file);
 	else
 		%%% get fps, note: escape \ by \\
 		cmd = sprintf('%s -i %s 2>&1 | sed -n "0,/.*, \\(.*\\) fps.*/s/.*, \\(.*\\) fps.*/\\1/p"', ffmpeg_bin, filepath);
@@ -57,7 +57,7 @@ function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame
 		
 		ss_time = convert_to_timestamp(start_frame, fps);
 		to_time = convert_to_timestamp(end_frame, fps);
-		cmd = sprintf('%s -i %s -y -ss %s -to %s -vn -ac %d -ar 44100 -ab 320k -f wav %s', ffmpeg_bin, filepath, ss_time, to_time, ac_param, tmp_audio_file);
+		cmd = sprintf('%s -i %s -v quiet -y -ss %s -to %s -vn -ac %d -ar 44100 -ab 320k -f wav %s', ffmpeg_bin, filepath, ss_time, to_time, ac_param, tmp_audio_file);
 	end
 	
 	fprintf('\n---- Extract audio file for [%s]...\n', filepath);
