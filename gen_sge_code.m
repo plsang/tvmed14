@@ -1,12 +1,12 @@
 function gen_sge_code(script_name, pattern, total_segments, num_job)
 	
-	script_dir = '/net/per900a/raid0/plsang/tools/kaori-secode-med13';
+	script_dir = '/net/per610a/export/das11f/plsang/codes/kaori-secode-med14';
 	
 	sge_sh_file = sprintf('%s/%s.sh', script_dir, script_name);
 	
 	
 	[file_dir, file_name] = fileparts(sge_sh_file);
-	output_dir = ['/net/per900a/raid0/plsang/tools/kaori-secode-med13/', script_name];
+	output_dir = [script_dir, '/', script_name];
 
 	if exist(output_dir, 'file') ~= 7,
 		mkdir(output_dir);
