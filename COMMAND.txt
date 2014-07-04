@@ -1,0 +1,7 @@
+
+
+
+gen_sge_code:
+
+gen_sge_code('sift_encode_fc_sge', 'trecvidmed13 video-bg covdet hessian 256
+80 0 %d %d', 26424, 500)
