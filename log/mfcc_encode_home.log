@@ -1,0 +1,10 @@
+[2014/06/30 12:39:31] Start running mfcc_encode_home(video-bg, 26)
+[2014/06/30 12:40:18] Start running mfcc_encode_home(video-bg, 26)
+[2014/06/30 12:40:25] Start running mfcc_encode_home(video-bg, 0)
+[2014/06/30 20:16:10] Start running mfcc_encode_home(video-bg, 0)
+[2014/06/30 20:19:03] Start running mfcc_encode_home(video-bg, 0)
+[2014/06/30 21:42:10] Finish running mfcc_encode_home(video-bg, 0). Elapsed time: 01:23:06
+[2014/07/01 09:54:25] Start running mfcc_encode_home(video-bg, 26)
+[2014/07/01 12:54:21] Start running mfcc_encode_home(video-bg, 26)
+[2014/07/01 14:45:30] Start running mfcc_encode_home(video-bg, 26)
+[2014/07/02 22:46:11] Finish running mfcc_encode_home(video-bg, 26). Elapsed time: 08:00:40
