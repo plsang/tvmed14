@@ -1,10 +1,13 @@
-function sift_select_features( sift_algo, param )
+function sift_select_features( sift_algo, param, version )
 %SELECT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
 	% nSize: step for dense sift
     % parameters
 	
 	%%
+	if ~exist('version', 'var'),
+		version = 'v14.1';  %% using both event video + bg video
+	end
 
 	set_env;
 	
@@ -42,7 +45,8 @@ function sift_select_features( sift_algo, param )
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
 	load(medmd_file, 'MEDMD'); 
 	
-	clips = MEDMD.EventBG.default.clips;
+	clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
+	%clips = MEDMD.EventBG.default.clips;
 	list_video = unique(clips);	% 4992 clips
 	
 	num_selected_videos = ceil(video_sampling_rate * length( list_video ));
@@ -57,7 +61,7 @@ function sift_select_features( sift_algo, param )
     
     feats = cell(length(selected_videos), 1);
 
-	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.bg.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), max_features);
+	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.%s.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), version, max_features);
 	if exist(output_file),
 		fprintf('File [%s] already exist. Skipped\n', output_file);
 		return;

@@ -1,8 +1,12 @@
-function [ feats ] = densetraj_select_features( dt_type, max_features )
+function [ feats ] = densetraj_select_features( dt_type, max_features, version )
 %SELECT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
 
 	set_env;
+	
+	if ~exist('version', 'var'),
+		version = 'v14.1';
+	end
 	
     % parameters
 	if ~exist('max_features', 'var'),
@@ -29,23 +33,12 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
 	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST-RSZ';
 	
-	% csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
-	% eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
-	% f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
-
-	% f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
-	% f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
-	
-	% list_eventvideo = load_video_list(f_eventvideo_csv);
-	% list_bgvideo = load_video_list(f_eventbg_csv);
-	
-	% list_video = [list_eventvideo, list_bgvideo];
-	
 	fprintf('Loading metadata...\n');
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
 	load(medmd_file, 'MEDMD'); 
 	
-	clips = MEDMD.EventBG.default.clips;
+	clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
+	%clips = MEDMD.EventBG.default.clips;
 	list_video = unique(clips);	% 4992 clips
 	
 	num_selected_videos = ceil(video_sampling_rate * length( list_video ));
@@ -92,7 +85,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
          feats = vl_colsubset(feats, max_features);
     end
 
-	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/densetraj.mbh.%s/data/selected_feats_%d_%d.mat', dt_type, max_features);
+	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/densetraj.mbh.%s.%s/data/selected_feats_%d.mat', dt_type, version, max_features);
 	output_dir = fileparts(output_file);
 	if ~exist(output_dir, 'file'),
 		cmd = sprintf('mkdir -p %s', output_dir);
