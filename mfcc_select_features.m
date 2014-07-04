@@ -1,8 +1,11 @@
-function mfcc_select_features( algo )
+function mfcc_select_features( algo, version )
 %SELECT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
 
 	set_env;
+	if ~exist('version', 'var'),
+		version = 'v14.1';
+	end
 	
 	% parameters
     sample_length = 1000; % frames
@@ -29,7 +32,7 @@ function mfcc_select_features( algo )
 	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST';
 	
-	feat_pat = sprintf('mfcc.bg.%s', algo');
+	feat_pat = sprintf('mfcc.bg.%s.%s', algo, version);
 
 	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/selected_feats_%d.mat', feat_pat, max_features);
 	if exist(output_file, 'file'),

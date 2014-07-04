@@ -1,4 +1,4 @@
-function mfcc_encode_home( exp_ann, dimred, algo, start_seg, end_seg )
+function mfcc_encode_home( exp_ann, algo, version, start_seg, end_seg )
 %ENCODE Summary of this function goes here
 %   Detailed explanation goes here
 %% kf_dir_name: name of keyframe folder, e.g. keyframe-60 for segment length of 60s   
@@ -12,7 +12,7 @@ function mfcc_encode_home( exp_ann, dimred, algo, start_seg, end_seg )
 	codebook_gmm_size = 256;
 	
 	feat_dim = 39;
-	%dimred = 26;
+	dimred = 0;	% don't use PCA for MFCC
 	
 	configs = set_global_config();
 	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
@@ -40,10 +40,10 @@ function mfcc_encode_home( exp_ann, dimred, algo, start_seg, end_seg )
 	
 	clips = [train_clips, test_clips];
     
-	feature_ext_fc = sprintf('mfcc.bg.%s.cb%d.fc', algo, codebook_gmm_size);
+	feature_ext_fc = sprintf('mfcc.%s.%s.cb%d.fc', algo, version, codebook_gmm_size);
 	
 	if dimred > 0,
-		feature_ext_fc = sprintf('mfcc.bg.%s.cb%d.fc.pca', algo, codebook_gmm_size);
+		feature_ext_fc = sprintf('mfcc.%s.%s.cb%d.fc.pca', algo, version, codebook_gmm_size);
 	end
 	
 	output_dir_fc = sprintf('%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
@@ -51,15 +51,17 @@ function mfcc_encode_home( exp_ann, dimred, algo, start_seg, end_seg )
         mkdir(output_dir_fc);
     end
 
+	feat_pat = sprintf('mfcc.%s.%s', algo, version);
+	
 	low_proj = [];
 	
 	if dimred > 0,
-		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.bg.%s/data/codebook.gmm.%d.%d.mat', algo, codebook_gmm_size, dimred);
-		low_proj_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.bg.%s/data/lowproj.%d.%d.mat', algo, dimred, feat_dim);
+		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/codebook.gmm.%d.%d.mat', feat_pat, codebook_gmm_size, dimred);
+		low_proj_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/lowproj.%d.%d.mat', feat_pat, dimred, feat_dim);
 		low_proj_ = load(low_proj_file, 'low_proj');
 		low_proj = low_proj_.low_proj;
 	else
-		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/mfcc.bg.%s/data/codebook.gmm.%d.%d.mat', algo, codebook_gmm_size, feat_dim);
+		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/codebook.gmm.%d.%d.mat', feat_pat, codebook_gmm_size, feat_dim);
 		codebook_gmm_ = load(codebook_gmm_file, 'codebook');
 		codebook_gmm = codebook_gmm_.codebook;
 	end
