@@ -12,7 +12,7 @@ export LD_LIBRARY_PATH=/net/per900a/raid0/plsang/software/gcc-4.8.1/release/lib:
 # Log info of the job to output file  *** CHANGED ***
 echo [$HOSTNAME] [$JOB_ID] [matlab -nodisplay -r "sift_encode_fc_sge('$1', '$2', '$3', '$4', $5, $6, $7, $8, $9)"]
 # change to the code dir  --> NEW!!! *** CHANGED ***
-cd /net/per610a/export/das11f/plsang/codes/kaori-secode-med14
+cd /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.1
 # Log info of current dir
 pwd
 # Command - -->  must use " (double quote) for $2 because it contains a string  --- *** CHANGED ***

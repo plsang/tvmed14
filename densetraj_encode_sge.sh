@@ -4,7 +4,7 @@
 # Force to use shell sh. Note that #$ is SGE command
 #$ -S /bin/sh
 # Force to limit hosts running jobs
-#$ -q all.q@@bc3hosts
+#$ -q all.q@@bc3hosts,all.q@@bc4hosts
 # Log starting time
 date 
 # for opencv shared lib
@@ -12,7 +12,7 @@ export LD_LIBRARY_PATH=/net/per900a/raid0/plsang/software/gcc-4.8.1/release/lib:
 # Log info of the job to output file  *** CHANGED ***
 echo [$HOSTNAME] [$JOB_ID] [matlab -nodisplay -r "densetraj_encode_sge( '$1', '$2', $3, $4)"]
 # change to the code dir  --> NEW!!! *** CHANGED ***
-cd /net/per610a/export/das11f/plsang/codes/kaori-secode-med14
+cd /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.1
 # Log info of current dir
 pwd
 # Command - -->  must use " (double quote) for $2 because it contains a string  --- *** CHANGED ***
