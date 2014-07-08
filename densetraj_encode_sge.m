@@ -11,6 +11,18 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
     set_env;
 	dimred = 128;
 	
+	if ~exist('version', 'var'),
+		version = 'v14.1';
+	end
+	
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
+	msg = sprintf('Start running %s(%s, %s, %d, %d)', mfilename, dt_type, exp_ann, start_seg, end_seg);
+	logmsg(logfile, msg);
+	change_perm(logfile);
+	tic;
+
+	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST-RSZ';
 	fea_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/feature';
 	
@@ -33,25 +45,28 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
 	
 	codebook_gmm_size = 256;
     
-	feature_ext_fc = sprintf('densetraj.mbh.%s.cb%d.fc', dt_type, codebook_gmm_size);
+	feat_pat = sprintf('densetraj.mbh.%s.%s', dt_type, version);
+
+	feature_ext_fc = sprintf('%s.cb%d.fc', feat_pat, codebook_gmm_size);
 	if dimred > 0,
-		feature_ext_fc = sprintf('densetraj.mbh.%s.cb%d.fc.pca', dt_type, codebook_gmm_size);
+		feature_ext_fc = sprintf('%s.pca', feature_ext_fc);
 	end
 
     output_dir_fc = sprintf('%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
 	
     if ~exist(output_dir_fc, 'file'),
         mkdir(output_dir_fc);
+		change_perm(output_dir_fc);
     end
 	
 	% loading gmm codebook
 	
-	codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/densetraj.mbh.%s/data/codebook.gmm.%d.mat', dt_type, codebook_gmm_size);
+	codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/codebook.gmm.%d.mat', feat_pat, codebook_gmm_size);
 	low_proj = [];
 	
 	if dimred > 0,
-		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/densetraj.mbh.%s/data/codebook.gmm.%d.%d.mat', dt_type, codebook_gmm_size, dimred);
-		low_proj_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/densetraj.mbh.%s/data/lowproj.%d.%d.mat', dt_type, dimred, 192);
+		codebook_gmm_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/codebook.gmm.%d.%d.mat', feat_pat, codebook_gmm_size, dimred);
+		low_proj_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/lowproj.%d.%d.mat', feat_pat, dimred, 192);
 		low_proj_ = load(low_proj_file, 'low_proj');
 		low_proj = low_proj_.low_proj;
 	end
@@ -84,9 +99,15 @@ function [ output_args ] = densetraj_encode_sge( dt_type, exp_ann, start_seg, en
         code = densetraj_extract_and_encode(dt_type, video_file, codebook_gmm, low_proj); %important
         
 		par_save(output_fc_file, code); 	
+		change_perm(output_fc_file);
 
     end
     
+	elapsed = toc;
+	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
+	msg = sprintf('Finish running %s(%s, %s, %d, %d). Elapsed time: %s', mfilename, dt_type, exp_ann, start_seg, end_seg, elapsed_str);
+	logmsg(logfile, msg);
+
     %toc
 	quit;
 end

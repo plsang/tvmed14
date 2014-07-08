@@ -6,7 +6,11 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 	% update: Jun 25th, SPM suported
     % setting
     set_env;
-        
+	
+	if ~exist('version', 'var'),
+		version = 'v14.1';  %% using both event video + bg video
+	end
+	
     % encoding type
     enc_type = 'fisher';
 	
@@ -35,7 +39,8 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 		dimred = 80;
 	end
 	
-	feature_ext = sprintf('%s.%s.bg.sift.cb%d.%s', sift_algo, num2str(param), codebook_size, enc_type);
+	feat_pat = sprintf('%s.%s.%s.sift', sift_algo, num2str(param), version);
+	feature_ext = sprintf('%s.cb%d.%s', feat_pat, codebook_size, enc_type);
 	if spm > 0,
 		feature_ext = sprintf('%s.spm', feature_ext);
 	end
@@ -50,8 +55,8 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 		change_perm(output_dir);
     end
     
-    codebook_file = sprintf('/net/per610a/export/das11f/plsang/%s/feature/bow.codebook.devel/%s.%s.bg.sift/data/codebook.gmm.%d.%d.mat', ...
-		proj_name, sift_algo, num2str(param), codebook_size, dimred);
+    codebook_file = sprintf('/net/per610a/export/das11f/plsang/%s/feature/bow.codebook.devel/%s/data/codebook.gmm.%d.%d.mat', ...
+		proj_name, feat_pat, codebook_size, dimred);
 		
 	fprintf('Loading codebook [%s]...\n', codebook_file);
     codebook_ = load(codebook_file, 'codebook');
@@ -59,8 +64,8 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
  
  	low_proj = [];
 	if dimred < default_dim,
-		lowproj_file = sprintf('/net/per610a/export/das11f/plsang/%s/feature/bow.codebook.devel/%s.%s.bg.sift/data/lowproj.%d.%d.mat', ...
-			proj_name, sift_algo, num2str(param), dimred, default_dim);
+		lowproj_file = sprintf('/net/per610a/export/das11f/plsang/%s/feature/bow.codebook.devel/%s/data/lowproj.%d.%d.mat', ...
+			proj_name, feat_pat, dimred, default_dim);
 			
 		fprintf('Loading low projection matrix [%s]...\n', lowproj_file);
 		low_proj_ = load(lowproj_file, 'low_proj');
