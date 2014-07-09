@@ -1,4 +1,4 @@
-function [ output_args ] = densetraj_encode_sge( descriptor, exp_ann, start_seg, end_seg )
+function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
 %ENCODE Summary of this function goes here
 %   Detailed explanation goes here
 %% kf_dir_name: name of keyframe folder, e.g. keyframe-60 for segment length of 60s   
@@ -10,6 +10,13 @@ function [ output_args ] = densetraj_encode_sge( descriptor, exp_ann, start_seg,
     % setting
     set_env;
 	dimred = 128;
+	
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
+	msg = sprintf('Start running %s(%s, %s, %d, %d)', mfilename, exp_ann, start_seg, end_seg);
+	logmsg(logfile, msg);
+	change_perm(logfile);
+	tic;
 	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST-RSZ';
 	fea_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/feature';
@@ -34,15 +41,16 @@ function [ output_args ] = densetraj_encode_sge( descriptor, exp_ann, start_seg,
 	
 	codebook_gmm_size = 256;
     
-	feature_ext_fc = sprintf('idensetraj.%s.cb%d.fc', descriptor, codebook_gmm_size);
+	feature_ext_fc = sprintf('idensetraj.hoghofmbh.cb%d.fc', codebook_gmm_size);
 	if dimred > 0,
-		feature_ext_fc = sprintf('idensetraj.%s.cb%d.fc.pca', descriptor, codebook_gmm_size);
+		feature_ext_fc = sprintf('idensetraj.hoghofmbh.cb%d.fc.pca', codebook_gmm_size);
 	end
 
     output_dir_fc = sprintf('%s/%s/%s', fea_dir, exp_ann, feature_ext_fc);
 	
     if ~exist(output_dir_fc, 'file'),
         mkdir(output_dir_fc);
+		change_perm(output_dir_fc);
     end
 	
 	% loading gmm codebook
@@ -53,10 +61,10 @@ function [ output_args ] = densetraj_encode_sge( descriptor, exp_ann, start_seg,
 	
 	
 	codebook_hoghof_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.hoghof/data/codebook.gmm.%d.%d.mat', codebook_gmm_size, dimred);
-	low_proj_hoghof_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.hoghof/data/lowproj.%d.%d.mat', descriptor, dimred, 204);
+	low_proj_hoghof_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.hoghof/data/lowproj.%d.%d.mat', dimred, 204);
 	
 	codebook_mbh_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.mbh/data/codebook.gmm.%d.%d.mat', codebook_gmm_size, dimred);
-	low_proj_mbh_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.mbh/data/lowproj.%d.%d.mat', descriptor, dimred, 192);
+	low_proj_mbh_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.mbh/data/lowproj.%d.%d.mat', dimred, 192);
 
 	codebook_hoghof_ = load(codebook_hoghof_file, 'codebook');
     codebook_hoghof = codebook_hoghof_.codebook;
@@ -98,10 +106,18 @@ function [ output_args ] = densetraj_encode_sge( descriptor, exp_ann, start_seg,
         
 		par_save(output_hoghof_file, code_hoghof); 	
 		par_save(output_mbh_file, code_mbh); 	
+		
+		change_perm(output_hoghof_file);
+		change_perm(output_mbh_file);
 
     end
     
-    %toc
+	elapsed = toc;
+	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
+	msg = sprintf('Finish running %s(%s, %s, %d, %d). Elapsed time: %s', mfilename, exp_ann, start_seg, end_seg, elapsed_str);
+	logmsg(logfile, msg);
+
+	%toc
 	quit;
 end
 
