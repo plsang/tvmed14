@@ -1,22 +1,27 @@
-function code = densetraj_extract_and_encode( dt_type, video_file, codebook, low_proj)
+function code = densetraj_extract_and_encode( descriptor, video_file, codebook, low_proj)
 %EXTRACT_AND_ENCODE Summary of this function goes here
 %   Detailed explanation goes here
 	
-	% dt_type: dt, idt
+	set_env;
+
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
 	
     % densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_FULL';
 	% densetraj = '/net/per900a/raid0/plsang/software/dense_trajectory_release_v1.1/release/DenseTrack';
 	% densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack';  % same with DenseTrack_FULL
 	% densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_MBH';
 	
-	switch dt_type,
-		case 'dt'
-			densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_MBH';
-		case 'idt'
-			densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_MBH';
-		otherwise
-			error('Unsupported Dense Trajectory Type\n');
-	end
+	% switch dt_type,
+		% case 'dt'
+			% densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack_MBH';
+		% case 'idt'
+			% densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_MBH';
+		% otherwise
+			% error('Unsupported Dense Trajectory Type\n');
+	% end
+	
+	densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_HOGHOFMBH';
 	
 	%% fisher initialization
 	fisher_params.grad_weights = false;		% "soft" BOW
@@ -38,8 +43,22 @@ function code = densetraj_extract_and_encode( dt_type, video_file, codebook, low
 		error(['Error running popenr(', cmd,')']);
     end
 
-	feat_dim = 192;
-	full_dim = 199;		
+	switch descriptor,
+		case 'hoghof'
+			start_idx = 1;
+			end_idx = 204;
+		case 'mbh'
+			start_idx = 205;
+			end_idx = 396;
+		case 'hoghofmbh'
+			start_idx = 1;
+			end_idx = 396;
+		otherwise
+			error('Unknown descriptor for dense trajectories!!\n');
+	end
+	
+	feat_dim = end_idx - start_idx + 1;
+	full_dim = 396;		
 	
     BLOCK_SIZE = 50000;                          % initial capacity (& increment size)
     %listSize = BLOCK_SIZE;                      % current list capacity
@@ -59,18 +78,16 @@ function code = densetraj_extract_and_encode( dt_type, video_file, codebook, low
 
 	  if length(Y) ~= full_dim,
 			msg = ['wrong dimension [', num2str(length(Y)), '] when running [', cmd, '] at ', datestr(now)];
-			log(msg);
+			logmsg(logfile, msg);
 			continue;                                    
 	  end
 	  
       %X = [X Y(8:end)]; % discard first 7 elements
-      X(:, listPtr) = Y(8:end);
+      X(:, listPtr) = Y(start_idx:end_idx);
       listPtr = listPtr + 1; 
       
       if listPtr > BLOCK_SIZE,
-          % kcb encoding
                
-		 
 		if ~isempty(low_proj),	
 			mexFisherEncodeHelperSP('accumulate', cpp_handle, single(low_proj * X));
 		else
@@ -101,16 +118,9 @@ function code = densetraj_extract_and_encode( dt_type, video_file, codebook, low
 	mexFisherEncodeHelperSP('clear', cpp_handle);
 	
 	% power normalization (with alpha = 0.5) 		
-	% code = sign(code) .* sqrt(abs(code));    
+	code = sign(code) .* sqrt(abs(code));    
 	
     % Close pipe
     popenr(p, -1);
 
-end
-
-function log (msg)
-	logfile = [mfilename('fullpath'), '.log'];
-    fh = fopen(logfile, 'a+');
-    fprintf(fh, ['[', datestr(now, 'yyyy/mm/dd HH:MM:SS'), '] ', msg, '\n']);
-	fclose(fh);
 end
