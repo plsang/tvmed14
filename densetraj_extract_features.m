@@ -1,18 +1,17 @@
 function [ X ] = densetraj_extract_features( video_file, descriptor, start_frame, end_frame)
 %EXTRACT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
-	addpath('/net/per610a/export/das11f/plsang/codes/common');
-	
-	if ~exist('gap', 'var'),
-		gap = 1;
-	end
+	set_env;
+
+	configs = set_global_config();
+	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
 	
 	if ~exist('descriptor', 'var'),
 		descriptor = 'full';
 	end
 	
     %%densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack';
-	densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_MBH';
+	densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_HOGHOFMBH';
     % Set up the mpeg audio decode command as a readable stream
 
 	cmd = [densetraj, ' ', video_file];
