@@ -51,7 +51,10 @@ function code = sift_do_encoding(enc_type, feats, codebook, kdtree, low_proj)
 			mexFisherEncodeHelperSP('clear', cpp_handle);
 			
 			% now apply kernel map 
-			code = sign(code) .* sqrt(abs(code));    
+			code = sign(code) .* sqrt(abs(code));  
+			
+			% Update Jul 8
+			code = code / norm(code, 2);
 			
 		otherwise
 		
