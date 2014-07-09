@@ -1,4 +1,4 @@
-function [ feats ] = densetraj_select_features( dt_type, max_features )
+function [ feats ] = densetraj_select_features( descriptor, max_features )
 %SELECT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -12,7 +12,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
 	%% event_set = 1: 10ex, 2:100Ex, 3: 130Ex
 	configs = set_global_config();
 	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
-	msg = sprintf('Start running %s(%s, %d)', mfilename, dt_type, max_features);
+	msg = sprintf('Start running %s(%s, %d)', mfilename, descriptor, max_features);
 	logmsg(logfile, msg);
 	
 	tic;
@@ -28,19 +28,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
 	metadata = metadata_.metadata;
 	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST-RSZ';
-	
-	% csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
-	% eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
-	% f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
-
-	% f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
-	% f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
-	
-	% list_eventvideo = load_video_list(f_eventvideo_csv);
-	% list_bgvideo = load_video_list(f_eventbg_csv);
-	
-	% list_video = [list_eventvideo, list_bgvideo];
-	
+		
 	fprintf('Loading metadata...\n');
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
 	load(medmd_file, 'MEDMD'); 
@@ -75,7 +63,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
 		
 		fprintf('\n--- [%d/%d] Computing features for video %s ...\n', ii, length(selected_videos), video_name);
 		
-        feat = densetraj_extract_mbh(video_file, dt_type, start_frame, end_frame);
+        feat = densetraj_extract_features(video_file, descriptor, start_frame, end_frame);
         
         if size(feat, 2) > max_features_per_video,
             feats{ii} = vl_colsubset(feat, max_features_per_video);
@@ -92,7 +80,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
          feats = vl_colsubset(feats, max_features);
     end
 
-	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/densetraj.mbh.%s/data/selected_feats_%d_%d.mat', dt_type, max_features);
+	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.%s/data/selected_feats_%d_%d.mat', descriptor, max_features);
 	output_dir = fileparts(output_file);
 	if ~exist(output_dir, 'file'),
 		cmd = sprintf('mkdir -p %s', output_dir);
@@ -105,7 +93,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features )
     elapsed = toc;
 	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
 	
-	msg = sprintf('Finish running %s(%s, %d). Elapsed time: %s', mfilename, dt_type, max_features, elapsed_str);
+	msg = sprintf('Finish running %s(%s, %d). Elapsed time: %s', mfilename, descriptor, max_features, elapsed_str);
 	logmsg(logfile, msg);
 end
 
