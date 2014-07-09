@@ -61,7 +61,7 @@ function [ X ] = densetraj_extract_features( video_file, descriptor, start_frame
 
 	  if length(Y) ~= full_dim,
 			msg = ['wrong dimension [', num2str(length(Y)), '] when running [', cmd, '] at ', datestr(now)];
-			logmsg(msg);
+			logmsg(logfile, msg);
 			continue;                                    
 	  end
 	  
