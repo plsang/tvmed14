@@ -1,6 +1,7 @@
-function [ X ] = densetraj_extract_features( video_file, descriptor, gap)
+function [ X ] = densetraj_extract_features( video_file, descriptor, start_frame, end_frame)
 %EXTRACT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
+	addpath('/net/per610a/export/das11f/plsang/codes/common');
 	
 	if ~exist('gap', 'var'),
 		gap = 1;
@@ -10,32 +11,32 @@ function [ X ] = densetraj_extract_features( video_file, descriptor, gap)
 		descriptor = 'full';
 	end
 	
-    densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack';
+    %%densetraj = '/net/per900a/raid0/plsang/tools/dense_trajectory_release/release/DenseTrack';
+	densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_MBH';
     % Set up the mpeg audio decode command as a readable stream
-    cmd = [densetraj, ' ', video_file, ' -G ', num2str(gap)];
 
+	cmd = [densetraj, ' ', video_file];
+	
+	if exist('start_frame', 'var') && exist('end_frame', 'var'),
+		cmd = [densetraj, ' ', video_file, ' -S ', num2str(start_frame), ' -E ', num2str(end_frame)];
+	end
+	
 	switch descriptor,
-		case 'trajshape'
-			start_idx = 8;
-			end_idx = 37;
-		case 'hog'
-			start_idx = 38;
-			end_idx = 133;
-		case 'hof'
-			start_idx = 134;
-			end_idx = 241;
+		case 'hoghof'
+			start_idx = 1;
+			end_idx = 204;
 		case 'mbh'
-			start_idx = 242;
-			end_idx = 433;
-		case 'full'
-			start_idx = 8;
-			end_idx = 433;
+			start_idx = 205;
+			end_idx = 396;
+		case 'hoghofmbh'
+			start_idx = 1;
+			end_idx = 396;
 		otherwise
 			error('Unknown descriptor for dense trajectories!!\n');
 	end
 	
 	feat_dim = end_idx - start_idx + 1;
-	full_dim = 433;						% default of dense trajectories 7 + 30 + 96 + 108 + 192
+	full_dim = 396;						% default of dense trajectories 7 + 30 + 96 + 108 + 192
 	
     % open pipe
     p = popenr(cmd);
@@ -61,7 +62,7 @@ function [ X ] = densetraj_extract_features( video_file, descriptor, gap)
 
 	  if length(Y) ~= full_dim,
 			msg = ['wrong dimension [', num2str(length(Y)), '] when running [', cmd, '] at ', datestr(now)];
-			log(msg);
+			logmsg(msg);
 			continue;                                    
 	  end
 	  
@@ -84,11 +85,4 @@ function [ X ] = densetraj_extract_features( video_file, descriptor, gap)
     popenr(p, -1);
 
 
-end
-
-function log (msg)
-	fh = fopen('/net/per900a/raid0/plsang/tools/kaori-secode-ucf101/log/densetraj_extract_features.log', 'a+');
-	fprintf(fh, msg);
-	fprintf(fh, '\r\n');
-	fclose(fh);
 end
