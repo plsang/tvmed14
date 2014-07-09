@@ -6,7 +6,8 @@ function sift_select_features( sift_algo, param, version )
 	
 	%%
 	if ~exist('version', 'var'),
-		version = 'v14.1';  %% using both event video + bg video
+		%version = 'v14.1';  %% using both event video + bg video
+		version = 'v14.1.1';  %% using bg video + root sift on Vlfeat (codvet, hessian);
 	end
 
 	set_env;
@@ -45,8 +46,8 @@ function sift_select_features( sift_algo, param, version )
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
 	load(medmd_file, 'MEDMD'); 
 	
-	clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
-	%clips = MEDMD.EventBG.default.clips;
+	%clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
+	clips = MEDMD.EventBG.default.clips;
 	list_video = unique(clips);	% 4992 clips
 	
 	num_selected_videos = ceil(video_sampling_rate * length( list_video ));

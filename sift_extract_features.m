@@ -37,6 +37,11 @@ function [frames, descrs] = sift_extract_features( img_path, sift_algo, param )
 				descrs = [];
 			end
 			
+			%% Update Jul 9, support rootsift
+			if ~isempty(descrs),
+				sift = double(descrs);
+				descrs = single(sqrt(sift./repmat(sum(sift), 128, 1)));
+			end
 				
 		case 'phow'
             obj.verbose = false;
