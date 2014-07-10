@@ -80,7 +80,7 @@ function [ feats ] = densetraj_select_features( descriptor, max_features )
          feats = vl_colsubset(feats, max_features);
     end
 
-	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.%s/data/selected_feats_%d_%d.mat', descriptor, max_features);
+	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/idensetraj.%s/data/selected_feats_%d.mat', descriptor, max_features);
 	output_dir = fileparts(output_file);
 	if ~exist(output_dir, 'file'),
 		cmd = sprintf('mkdir -p %s', output_dir);
