@@ -48,8 +48,6 @@ function [code_hoghof, code_mbh] = densetraj_extract_and_encode_hoghofmbh( video
     listPtr = 1;
     
     %tic
-
-    code = zeros(size(codebook, 2), 1);
     
     while true,
 
