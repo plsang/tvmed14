@@ -13,7 +13,7 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
 	
 	configs = set_global_config();
 	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
-	msg = sprintf('Start running %s(%s, %s, %d, %d)', mfilename, exp_ann, start_seg, end_seg);
+	msg = sprintf('Start running %s(%s, %d, %d)', mfilename, exp_ann, start_seg, end_seg);
 	logmsg(logfile, msg);
 	change_perm(logfile);
 	tic;
@@ -95,8 +95,8 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
 		output_hoghof_file = sprintf('%s/%s/%s.hoghof.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
 		output_mbh_file = sprintf('%s/%s/%s.mbh.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
 		
-        if exist(output_fc_file, 'file') ,
-            fprintf('File [%s] already exist. Skipped!!\n', output_fc_file);
+        if exist(output_hoghof_file, 'file') && exist(output_mbh_file, 'file'),
+            fprintf('File [%s] already exist. Skipped!!\n', video_file);
             continue;
         end
 		
@@ -114,7 +114,7 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
     
 	elapsed = toc;
 	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
-	msg = sprintf('Finish running %s(%s, %s, %d, %d). Elapsed time: %s', mfilename, exp_ann, start_seg, end_seg, elapsed_str);
+	msg = sprintf('Finish running %s(%s, %d, %d). Elapsed time: %s', mfilename, exp_ann, start_seg, end_seg, elapsed_str);
 	logmsg(logfile, msg);
 
 	%toc
