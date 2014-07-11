@@ -12,3 +12,14 @@
 [2014/06/30 15:43:08] Finish running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, covdet.hessian.bg.sift, 80). Elapsed time: 02:09:39
 [2014/06/30 16:08:00] Start running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, fspace.hesaff.bg.sift, 80)
 [2014/06/30 18:42:47] Finish running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, fspace.hesaff.bg.sift, 80). Elapsed time: 02:34:47
+[2014/07/10 09:51:18] Start running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 128)
+[2014/07/10 10:14:04] Finish running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 128). Elapsed time: 00:22:45
+[2014/07/10 10:53:34] Start running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 128)
+[2014/07/10 11:16:16] Finish running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 128). Elapsed time: 00:22:42
+[2014/07/10 21:55:52] Start running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.mbh, 128)
+[2014/07/10 22:20:26] Finish running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.mbh, 128). Elapsed time: 00:24:33
+[2014/07/11 05:20:20] Start running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 128)
+[2014/07/11 07:05:59] Finish running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 128). Elapsed time: 01:45:38
+[2014/07/11 07:05:59] Start running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 64)
+[2014/07/11 09:06:23] Finish running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.hoghof, 64). Elapsed time: 02:00:23
+[2014/07/11 11:12:51] Start running do_clustering_gmm(/net/per610a/export/das11f/plsang/trecvidmed13, idensetraj.mbh, 128)

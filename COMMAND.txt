@@ -5,3 +5,6 @@ gen_sge_code:
 
 gen_sge_code('sift_encode_fc_sge', 'trecvidmed13 video-bg covdet hessian 256
 80 0 %d %d', 26424, 500)
+
+
+matlabpool open; densetraj_select_features( 'mbh' ); matlabpool close; tic; do_clustering_gmm('/net/per610a/export/das11f/plsang/trecvidmed13', 'idensetraj.mbh', 128); toc;
