@@ -33,11 +33,19 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
 	
 	%train_clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
 	train_clips = [MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
-	train_clips = unique(train_clips);
+	[train_clips, train_clips_idx] = unique(train_clips);
+	
+	train_clips_durations = [MEDMD.EventKit.EK130Ex.durations, MEDMD.EventBG.default.durations];
+	train_clips_durations = train_clips_durations(train_clips_idx);
+	[train_clips_durations, sorted_train_idx] = sort(train_clips_durations, 'descend');
+	train_clips = train_clips(sorted_train_idx);
 	
 	test_clips = MEDMD.RefTest.KINDREDTEST.clips;
+	[test_clips_durations, sorted_test_idx] = sort(MEDMD.RefTest.KINDREDTEST.durations, 'descend');
+	test_clips = test_clips(sorted_test_idx);
 	
 	clips = [train_clips, test_clips];
+	durations = [train_clips_durations, test_clips_durations];
 	
 	codebook_gmm_size = 256;
     
@@ -92,23 +100,24 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
 	
         video_file = fullfile(video_dir, metadata.(video_id).ldc_pat);
 		
-		output_hoghof_file = sprintf('%s/%s/%s.hoghof.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
-		output_mbh_file = sprintf('%s/%s/%s.mbh.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
+		%output_hoghof_file = sprintf('%s/%s/%s.hoghof.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
+		%output_mbh_file = sprintf('%s/%s/%s.mbh.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
+		output_file = sprintf('%s/%s/%s.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
 		
-        if exist(output_hoghof_file, 'file') && exist(output_mbh_file, 'file'),
-            fprintf('File [%s] already exist. Skipped!!\n', video_file);
+        if exist(output_file, 'file'),
+            fprintf('File [%s] already exist. Skipped!!\n', output_file);
             continue;
         end
 		
-        fprintf(' [%d --> %d --> %d] Extracting & Encoding for [%s]...\n', start_seg, ii, end_seg, video_id);
+        fprintf(' [%d --> %d --> %d] Extracting & Encoding for [%s], durations %d s...\n', start_seg, ii, end_seg, video_id, durations(ii));
         
         [code_hoghof, code_mbh] = densetraj_extract_and_encode_hoghofmbh(video_file, codebook_hoghof, low_proj_hoghof, codebook_mbh, low_proj_mbh); %important
         
-		par_save(output_hoghof_file, code_hoghof); 	
-		par_save(output_mbh_file, code_mbh); 	
+		code = [code_hoghof; code_mbh];
 		
-		change_perm(output_hoghof_file);
-		change_perm(output_mbh_file);
+		par_save(output_file, code); 	
+		change_perm(output_file);
+		
 
     end
     
