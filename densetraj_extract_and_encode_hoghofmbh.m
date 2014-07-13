@@ -6,6 +6,7 @@ function [code_hoghof, code_mbh] = densetraj_extract_and_encode_hoghofmbh( video
 
 	configs = set_global_config();
 	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
+	change_perm(logfile);
 	
 	densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_HOGHOFMBH';
 	
