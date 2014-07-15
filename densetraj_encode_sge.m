@@ -115,8 +115,8 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
         
 		code = [code_hoghof; code_mbh];
 		
-		par_save(output_file, code); 	
-		change_perm(output_file);
+		par_save(output_file, code, 1); 	
+		%change_perm(output_file);
 		
 
     end
