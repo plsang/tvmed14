@@ -12,10 +12,14 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 
 	if exist(output_dir, 'file') ~= 7,
 		mkdir(output_dir);
+		change_perm(output_dir);
 	end
 	
-	error_file = sprintf('%s/%s.error.log', output_dir, script_name);
-	change_perm(error_file);
+	error_dir = sprintf('%s/error-log', output_dir);
+	if exist(error_dir, 'file') ~= 7,
+		mkdir(error_dir);
+		change_perm(error_dir);
+	end
 	
 	output_file = sprintf('%s/%s.qsub.sh', output_dir, file_name);
 	fh = fopen(output_file, 'w');
@@ -40,6 +44,8 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 		
 		params = sprintf(pattern, start_idx, end_idx);
 		%fprintf(fh, 'qsub -e /dev/null -o /dev/null %s %s\n', sge_sh_file, params);
+		error_file = sprintf('%s/%s.error.s%06d_e%06d.log', error_dir, script_name, start_idx, end_idx);
+		
 		fprintf(fh, 'qsub -e %s -o /dev/null %s %s\n', error_file, sge_sh_file, params);
 		
 		if end_idx == total_segments, break; end;
@@ -58,6 +64,8 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 		
 		params = sprintf(pattern, start_idx, end_idx);
 		%fprintf(fh, 'qsub -e /dev/null -o /dev/null %s %s\n', sge_sh_file, params);
+		error_file = sprintf('%s/%s.error.s%06d_e%06d.log', error_dir, script_name, start_idx, end_idx);
+		
 		fprintf(fh, 'qsub -e %s -o /dev/null %s %s\n', error_file, sge_sh_file, params);
 		
 		if end_idx == total_segments, break; end;
