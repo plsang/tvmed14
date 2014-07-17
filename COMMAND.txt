@@ -3,11 +3,13 @@
 
 gen_sge_code:
 
-gen_sge_code('sift_encode_fc_sge', 'trecvidmed13 video-bg covdet hessian 256
-80 0 %d %d', 26424, 500)
+gen_sge_code('sift_encode_fc_sge', 'trecvidmed13 video-bg covdet hessian 256 80 0 %d %d', 26424, 500)
 
 densetraj_select_features
  matlabpool open;densetraj_select_features('dt');matlabpool close;do_clustering_gmm('/net/per610a/export/das11f/plsang/trecvidmed13','densetraj.mbh.dt.v14.1', 128);
  
 MFCC 
  matlabpool open 5;mfcc_select_features('rastamat');matlabpool close;do_clustering_gmm('/net/per610a/export/das11f/plsang/trecvidmed13','mfcc.bg.rastamat.v14.1');
+ 
+ 
+gen_local_scripts('sift_encode_fc_sge', '''trecvidmed13'', ''video-bg'', ''covdet'', ''hessian'', 256, 80, 0, %d, %d', 24928, 40) 

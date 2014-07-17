@@ -1,6 +1,6 @@
 function gen_sge_code(script_name, pattern, total_segments, num_job)
 	
-	script_dir = '/net/per610a/export/das11f/plsang/codes/kaori-secode-med14';
+	script_dir = '/net/per610a/export/das11f/plsang/codes/kaori-secode-med14.1';
 	
 	sge_sh_file = sprintf('%s/%s.sh', script_dir, script_name);
 	

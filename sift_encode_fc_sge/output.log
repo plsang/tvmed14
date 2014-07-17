@@ -1,0 +1,4 @@
+Thu Jul 10 10:12:11 JST 2014
+[bc303.hpc.vpl.nii.ac.jp] [1070900] [matlab -nodisplay -r sift_encode_fc_sge('trecvidmed13', 'video-bg', 'covdet', 'hessian', 256, 80, 0, 54, 106)]
+/net/per610a/export/das11f/plsang/codes/kaori-secode-med14.1
+Thu Jul 10 10:12:14 JST 2014

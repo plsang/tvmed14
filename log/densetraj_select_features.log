@@ -13,3 +13,5 @@
 [2014/07/04 11:05:33] Start running densetraj_select_features(dt, 1000000)
 [2014/07/04 11:10:32] Start running densetraj_select_features(dt, 1000000)
 [2014/07/04 11:12:32] Start running densetraj_select_features(idt, 1000000)
+[2014/07/05 02:11:37] Finish running densetraj_select_features(dt, 1000000). Elapsed time: 15:01:05
+[2014/07/05 10:29:31] Finish running densetraj_select_features(idt, 1000000). Elapsed time: 23:16:58
