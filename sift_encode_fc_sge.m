@@ -8,7 +8,7 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
     set_env;
 	
 	if ~exist('version', 'var'),
-		version = 'v14.1';  %% using both event video + bg video
+		version = 'v14.1.1';  %% using both event video + bg video
 	end
 	
     % encoding type
@@ -77,6 +77,7 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 	load(medmd_file, 'MEDMD'); 
 	
 	train_clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
+	%train_clips = [MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
 	train_clips = unique(train_clips);
 	
 	test_clips = MEDMD.RefTest.KINDREDTEST.clips;
