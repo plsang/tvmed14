@@ -142,7 +142,7 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 		code = sign(code) .* sqrt(abs(code));
 		
         par_save(output_file, code, 1); % MATLAB don't allow to save inside parfor loop             
-		change_perm(output_file);
+		%change_perm(output_file);
         
     end
     
