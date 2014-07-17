@@ -10,7 +10,7 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 	[file_dir, file_name] = fileparts(sge_sh_file);
 	output_dir = [script_dir, '/', script_name];
 
-	if exist(output_dir, 'file') ~= 7,
+	if ~exist(output_dir, 'file'),
 		mkdir(output_dir);
 		change_perm(output_dir);
 	end
