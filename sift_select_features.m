@@ -7,7 +7,7 @@ function sift_select_features( sift_algo, param, version )
 	%%
 	if ~exist('version', 'var'),
 		%version = 'v14.1';  %% using both event video + bg video
-		version = 'v14.1.1';  %% using bg video + root sift on Vlfeat (codvet, hessian);
+		version = 'v14.3';  %% using bg video + root sift on Vlfeat (codvet, hessian);
 	end
 
 	set_env;
@@ -30,18 +30,6 @@ function sift_select_features( sift_algo, param, version )
 	
     kf_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/keyframes';
 	
-    % csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
-	% eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
-	% f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
-
-	% f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
-	% f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
-	
-	% list_eventvideo = load_video_list(f_eventvideo_csv);
-	% list_bgvideo = load_video_list(f_eventbg_csv);
-	
-	% list_video = [list_eventvideo, list_bgvideo];
-	
 	fprintf('Loading metadata...\n');
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
 	load(medmd_file, 'MEDMD'); 
@@ -61,9 +49,13 @@ function sift_select_features( sift_algo, param, version )
 	max_features_per_video
     
     feats = cell(length(selected_videos), 1);
+	positions = cell(length(selected_videos), 1);
 
 	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.%s.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), version, max_features);
-	if exist(output_file),
+	
+	output_position_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.%s.sift/data/selected_positions_%d.mat', sift_algo, num2str(param), version, max_features);
+	
+	if exist(output_file) && exist(output_position_file),
 		fprintf('File [%s] already exist. Skipped\n', output_file);
 		return;
 	end
@@ -84,6 +76,7 @@ function sift_select_features( sift_algo, param, version )
 		
 		fprintf('Computing features for: %d - %s %f %% complete\n', ii, video_name, ii/length(selected_videos)*100.00);
 		feat = [];
+		position = [];
 		for jj = selected_idx,
 			img_name = kfs(jj).name;
 			img_path = fullfile(video_kf_dir, img_name);
@@ -96,32 +89,36 @@ function sift_select_features( sift_algo, param, version )
                 continue;
             end
 			feat = [feat descrs];
+			position = [position frames(1:2, :)];
 		end
         
         if size(feat, 2) > max_features_per_video,
-            feats{ii} = vl_colsubset(feat, max_features_per_video);
+            [feats{ii}, sel_idx] = vl_colsubset(feat, max_features_per_video);
+			positions{ii} = position(:, sel_idx);
         else
             feats{ii} = feat;
+			positions{ii} = position;
         end
         
     end
     
     % concatenate features into a single matrix
     feats = cat(2, feats{:});
-    
+    positions = cat(2, positions{:});
+	
     if size(feats, 2) > max_features,
-         feats = vl_colsubset(feats, max_features);
+         [feats, sel_idx] = vl_colsubset(feats, max_features);
+		 positions = positions(:, sel_idx);
     end
 
 	output_dir = fileparts(output_file);
 	if ~exist(output_dir, 'file'),
 		mkdir(output_dir);
-		%cmd = sprintf('mkdir -p %s', output_dir);
-		%system(cmd);
 	end
 	
 	fprintf('Saving selected features to [%s]...\n', output_file);
     save(output_file, 'feats', '-v7.3');
+	save(output_position_file, 'positions', '-v7.3');
     
 	elapsed = toc;
 	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
