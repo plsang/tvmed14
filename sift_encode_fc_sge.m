@@ -1,4 +1,4 @@
-function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size, dimred, spm, start_seg, end_seg )
+function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, start_seg, end_seg )
 %ENCODE Summary of this function goes here
 %   Detailed explanation goes here
 %% kf_dir_name: name of keyframe folder, e.g. keyframe-60 for segment length of 60s   
@@ -8,8 +8,22 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
     set_env;
 	
 	if ~exist('version', 'var'),
-		version = 'v14.1.1';  %% using both event video + bg video
+		version = 'v14.3';  %% using both event video + bg video
 	end
+	
+	%% parameters for Spatial FV
+	parms.feat_dim_orig = 128;
+	parms.feat_dim_proj = 80;
+	parms.appearance_components = 256;
+	parms.spatial_components = '1';
+	
+	d = 2;
+	D = parms.feat_dim_proj;
+	C = str2num(parms.spatial_components);
+	K = parms.appearance_components;
+	parms.imagevec_function = @get_asfv;
+    parms.imagevec_dim = K * (1 + 2 * D + C * (1 + 2 * d));
+	
 	
     % encoding type
     enc_type = 'fisher';
@@ -21,31 +35,70 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 	
 	configs = set_global_config();
 	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
-	msg = sprintf('Start running %s(%s, %s, %s, %s, %d, %d, %d, %d, %d)', mfilename, proj_name, exp_ann, sift_algo, param, codebook_size, dimred, spm, start_seg, end_seg);
+	msg = sprintf('Start running %s(%s, %s, %s, %s, %d, %d, %d, %d, %d)', mfilename, proj_name, exp_ann, sift_algo, param, start_seg, end_seg);
 	logmsg(logfile, msg);
 	change_perm(logfile);
 	tic;
 	
-	if ~exist('codebook_size', 'var'),
-		codebook_size = 256;
-	end
-    
-	if ~exist('spm', 'var'),
-		spm = 0;
-	end
-	
-	default_dim = 128;
-	if ~exist('dimred', 'var'),
-		dimred = 80;
-	end
+	proj_root_dir = '/net/per610a/export/das11f/plsang';
+	proj_dir = sprintf('%s/%s', proj_root_dir, proj_name);
 	
 	feat_pat = sprintf('%s.%s.%s.sift', sift_algo, num2str(param), version);
-	feature_ext = sprintf('%s.cb%d.%s', feat_pat, codebook_size, enc_type);
-	if spm > 0,
-		feature_ext = sprintf('%s.spm', feature_ext);
+	feature_ext = sprintf('%s.cb%d.%s', feat_pat, parms.appearance_components, enc_type);
+	
+	
+	parms.appearance_subspace_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_appearance_subspace_%d.mat', ...
+		proj_dir, feat_pat, parms.appearance_components);
+		
+	parms.appearance_model_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_appearance_model_%d.mat', ...
+		proj_dir, feat_pat, parms.appearance_components);
+	
+	parms.spatial_model_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_spatial_model_%d.mat', ...
+		proj_dir, feat_pat, parms.appearance_components);
+	
+	parms.normalizer_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_normalizer_%d.mat', ...
+		proj_dir, feat_pat, parms.appearance_components);	
+		
+	% load low proj
+	if ~exist(parms.appearance_subspace_filename,'file'),
+		error();
+	else
+		fprintf('Loading cached appearance subspace from %s\n', parms.appearance_subspace_filename);
+		tmp = load(parms.appearance_subspace_filename);
+		parms.appearance_subspace = tmp.appearance_subspace;
+		clear tmp;
 	end
 	
-	if dimred < default_dim,,
+	% load appearance_model (or gmm codebook)
+	if ~exist(parms.appearance_model_filename,'file'),
+		error();
+	else
+		fprintf('Loading cached appearance model from <%s>\n', parms.appearance_model_filename);
+        tmp = load(parms.appearance_model_filename);
+        parms.appearance_model = tmp.appearance_model;
+        clear tmp;
+	end
+	
+	% set spatial model
+	if ~exist(parms.spatial_model_filename,'file'),
+		error();
+	else
+		fprintf('Loading cached spatial model from %s\n', parms.spatial_model_filename);
+        tmp = load(parms.spatial_model_filename);
+        parms.spatial_model = tmp.spatial_model;
+        clear tmp;
+	end
+	
+	if ~exist(parms.normalizer_filename,'file'),
+		error();
+	else
+		fprintf('Loading cached normalizer from %s\n', parms.normalizer_filename);
+		tmp = load(parms.normalizer_filename);
+		parms.normalizer = tmp.normalizer;
+		clear tmp;
+	end   
+	
+	if parms.feat_dim_proj < parms.feat_dim_orig,,
 		feature_ext = sprintf('%s.pca', feature_ext);
 	end
 	
@@ -54,24 +107,7 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 		mkdir(output_dir);
 		change_perm(output_dir);
     end
-    
-    codebook_file = sprintf('/net/per610a/export/das11f/plsang/%s/feature/bow.codebook.devel/%s/data/codebook.gmm.%d.%d.mat', ...
-		proj_name, feat_pat, codebook_size, dimred);
-		
-	fprintf('Loading codebook [%s]...\n', codebook_file);
-    codebook_ = load(codebook_file, 'codebook');
-    codebook = codebook_.codebook;
  
- 	low_proj = [];
-	if dimred < default_dim,
-		lowproj_file = sprintf('/net/per610a/export/das11f/plsang/%s/feature/bow.codebook.devel/%s/data/lowproj.%d.%d.mat', ...
-			proj_name, feat_pat, dimred, default_dim);
-			
-		fprintf('Loading low projection matrix [%s]...\n', lowproj_file);
-		low_proj_ = load(lowproj_file, 'low_proj');
-		low_proj = low_proj_.low_proj;
-	end
-
 	fprintf('Loading metadata...\n');
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
 	load(medmd_file, 'MEDMD'); 
@@ -123,15 +159,34 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
 			img_name = kfs(jj).name;
 			img_path = fullfile(video_kf_dir, img_name);
 			
-			[frames, descrs] = sift_extract_features( img_path, sift_algo, param );
+			[f, d, image_size] = sift_extract_features( img_path, sift_algo, param );
             
             % if more than 50% of points are empty --> possibley empty image
-            if isempty(descrs) || sum(all(descrs == 0, 1)) > 0.5*size(descrs, 2),
+            if isempty(d) || sum(all(d == 0, 1)) > 0.5*size(d, 2),
                 %warning('Maybe blank image...[%s]. Skipped!\n', img_name);
                 continue;
             end
 			
-			code_ = sift_do_encoding(enc_type, descrs, codebook, [], low_proj);
+			data.d = d;
+            data.f = f;
+            n_features = size(data.d, 2);
+            data.d = double(data.d);            
+            data_sq = (data.d).^2;
+            zerovec_indices = find(sum(data_sq)==0);
+            nonzerovec_indices = find(sum(data_sq)~=0);
+            data.d(:,nonzerovec_indices) = bsxfun(@rdivide, data.d(:,nonzerovec_indices), sqrt(sum(data_sq(:,nonzerovec_indices))));
+            if ~isempty(zerovec_indices),
+               data.d(:,zerovec_indices) = zeros(parms.feat_dim_orig, length(zerovec_indices));     
+            end 
+            data.f = data.f(1:2,:) ./ (image_size' * ones(1,n_features));
+			
+			%code_ = sift_do_encoding(enc_type, descrs, codebook, [], low_proj);
+			appearance_projected = sift_sfv_pca_project(data.d, parms.appearance_subspace, parms.feat_dim_proj);
+			code_ = parms.imagevec_function(data.f, appearance_projected, parms.appearance_model, parms.spatial_model, parms.normalizer);
+			
+			% apply power normalization
+			code_ = sign(code_) .* sqrt(abs(code_));
+		
 			code{jj} = code_;	
 		end 
         
@@ -148,7 +203,7 @@ function sift_encode_fc_sge( proj_name, exp_ann, sift_algo, param, codebook_size
     
 	elapsed = toc;
 	elapsed_str = datestr(datenum(0,0,0,0,0,elapsed),'HH:MM:SS');
-	msg = sprintf('Finish running %s(%s, %s, %s, %s, %d, %d, %d, %d, %d). Elapsed time: %s', mfilename, proj_name, exp_ann, sift_algo, param, codebook_size, dimred, spm, start_seg, end_seg, elapsed_str);
+	msg = sprintf('Finish running %s(%s, %s, %s, %s, %d, %d, %d, %d, %d). Elapsed time: %s', mfilename, proj_name, exp_ann, sift_algo, param, start_seg, end_seg, elapsed_str);
 	logmsg(logfile, msg);
 	
     %toc
