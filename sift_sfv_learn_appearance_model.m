@@ -35,13 +35,10 @@ function sift_sfv_learn_appearance_model(proj_dir, feat_pat);
 		error('File %s not found!\n', f_selected_positions);
 	end
 	
-	fprintf('Loading selected features <%s>...\n', f_selected_positions);
+	fprintf('Loading selected positions <%s>...\n', f_selected_positions);
 	load(f_selected_positions, 'positions');
 	
-	
-	appearance_subspace = sift_sfv_get_pca(feats);
-	
-	parms.appearance_projected_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_appearance_projected_%d.mat', ...
+	parms.appearance_subspace_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_appearance_subspace_%d.mat', ...
 		proj_dir, feat_pat, parms.appearance_components);
 		
 	parms.appearance_model_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_appearance_model_%d.mat', ...
@@ -53,15 +50,17 @@ function sift_sfv_learn_appearance_model(proj_dir, feat_pat);
 	parms.normalizer_filename = sprintf('%s/feature/bow.codebook.devel/%s/data/sfv_normalizer_%d.mat', ...
 		proj_dir, feat_pat, parms.appearance_components);	
 		
-	if ~exist(parms.appearance_projected_filename,'file'),
-		parms.appearance_projected = sift_sfv_pca_project(feats, appearance_subspace, parms.feat_dim_proj);
-		save(parms.appearance_projected_filename,'-struct','parms','appearance_projected');
+	if ~exist(parms.appearance_subspace_filename,'file'),
+		parms.appearance_subspace = sift_sfv_get_pca(feats);
+		save(parms.appearance_subspace_filename,'-struct','parms','appearance_subspace');
 	else
-		fprintf('Loading cached normalizer from %s\n', parms.appearance_projected_filename);
-		tmp = load(parms.appearance_projected_filename);
-		parms.appearance_projected = tmp.appearance_projected;
+		fprintf('Loading cached normalizer from %s\n', parms.appearance_subspace_filename);
+		tmp = load(parms.appearance_subspace_filename);
+		parms.appearance_subspace = tmp.appearance_subspace;
 		clear tmp;
 	end
+	
+	parms.appearance_projected = sift_sfv_pca_project(feats, parms.appearance_subspace, parms.feat_dim_proj);
 	
 	% learn appearance_model (or gmm codebook)
 	if ~exist(parms.appearance_model_filename,'file'),
