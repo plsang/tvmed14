@@ -4,7 +4,7 @@ function mfcc_select_features( algo, version )
 
 	set_env;
 	if ~exist('version', 'var'),
-		version = 'v14.1';
+		version = 'v14.3';
 	end
 	
 	% parameters
@@ -32,7 +32,7 @@ function mfcc_select_features( algo, version )
 	
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST';
 	
-	feat_pat = sprintf('mfcc.bg.%s.%s', algo, version);
+	feat_pat = sprintf('mfcc.%s.%s', algo, version);
 
 	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s/data/selected_feats_%d.mat', feat_pat, max_features);
 	if exist(output_file, 'file'),

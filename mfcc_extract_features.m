@@ -91,7 +91,6 @@ function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame
 			%feat = melcepst(speech , fs, 'e0dD'); % include log energy, 0th cepstral coef, delta and delta-delta coefs
 			feat = feat';						  % transpose to column vectors;
 		elseif strcmp(toolbox, 'rastamat'),
-			disp('abb');
 			%cep2 = melfcc(speech, fs, 'maxfreq', 3700, 'numcep', 13, 'nbands', 20, 'fbtype', 'fcmel', 'dcttype', 1, 'usecmp', 1, 'wintime', 0.025, 'hoptime', 0.010, 'preemph', 0.97, 'dither', 1);
 			cep2 = melfcc(speech, fs, 'maxfreq', 3700, 'numcep', 13, 'nbands', 20, 'fbtype', 'fcmel', 'dcttype', 1, 'usecmp', 1, 'wintime', 0.025, 'hoptime', 0.010, 'preemph', 0.97, 'dither', 1, 'useenergy', 1);
 			del1 = deltas(cep2);
@@ -99,6 +98,12 @@ function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame
 			del2 = deltas(deltas(cep2));	% use default w: 9
 			% Composite, 39-element feature vector, just like we use for speech recognition
 			feat = [cep2;del1;del2];
+			
+			%% update July 18, support rootsift-like feature
+			if ~isempty(feat),
+				sift = double(feat);
+				feat = single(sqrt(sift./repmat(sum(sift), 39, 1)));
+			end
 		end
 		
 		%removing columns that contain any NaN
