@@ -5,7 +5,7 @@ function [ feats ] = densetraj_select_features( dt_type, max_features, version )
 	set_env;
 	
 	if ~exist('version', 'var'),
-		version = 'v14.1';
+		version = 'v14.3';
 	end
 	
     % parameters
@@ -37,8 +37,8 @@ function [ feats ] = densetraj_select_features( dt_type, max_features, version )
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
 	load(medmd_file, 'MEDMD'); 
 	
-	clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
-	%clips = MEDMD.EventBG.default.clips;
+	%clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
+	clips = MEDMD.EventBG.default.clips;
 	list_video = unique(clips);	% 4992 clips
 	
 	num_selected_videos = ceil(video_sampling_rate * length( list_video ));
