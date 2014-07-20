@@ -1,1 +1,0 @@
-qsub -e /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.1/sift_encode_fc_sge/error.log -o /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.1/sift_encode_fc_sge/output.log /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.1/sift_encode_fc_sge.sh trecvidmed13 video-bg covdet hessian 256 80 0 54 106

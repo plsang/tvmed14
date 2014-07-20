@@ -1,4 +1,4 @@
-function [frames, descrs] = sift_extract_features( img_path, sift_algo, param )
+function [frames, descrs, imsize] = sift_extract_features( img_path, sift_algo, param )
 	%param
 	% sift_algo is dsift --> param is nSize
 	% sift_algo is phow --> param is color type for vl_phow: GRAY (PHOW-gray), RGB, HSV, and OPPONENT (PHOW-color).
@@ -32,9 +32,12 @@ function [frames, descrs] = sift_extract_features( img_path, sift_algo, param )
 			try
 				im = imread(img_path);
 				[frames, descrs] = vl_covdet(single(rgb2gray(im)), 'method', obj.method);
+				imsize = size(im);
+				imsize = imsize(1:2);
 			catch
 				frames = [];
 				descrs = [];
+				imsize = [];
 			end
 			
 			%% Update Jul 9, support rootsift

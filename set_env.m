@@ -25,4 +25,5 @@ addpath('/net/per900a/raid0/plsang/tools/gmm-fisher-kaori/matlab');
 % gist descriptor
 addpath('/net/per900a/raid0/plsang/software/gistdescriptor');
 
-%featpipem_addpaths
+% yael
+addpath('/net/per900a/raid0/plsang/tools/yael_v401/matlab');

@@ -54,7 +54,7 @@ function sift_sfv_learn_appearance_model(proj_dir, feat_pat);
 		parms.appearance_subspace = sift_sfv_get_pca(feats);
 		save(parms.appearance_subspace_filename,'-struct','parms','appearance_subspace');
 	else
-		fprintf('Loading cached normalizer from %s\n', parms.appearance_subspace_filename);
+		fprintf('Loading cached appearance subspace from %s\n', parms.appearance_subspace_filename);
 		tmp = load(parms.appearance_subspace_filename);
 		parms.appearance_subspace = tmp.appearance_subspace;
 		clear tmp;
