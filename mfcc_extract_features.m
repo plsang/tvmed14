@@ -92,7 +92,7 @@ function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame
 			feat = feat';						  % transpose to column vectors;
 		elseif strcmp(toolbox, 'rastamat'),
 			%cep2 = melfcc(speech, fs, 'maxfreq', 3700, 'numcep', 13, 'nbands', 20, 'fbtype', 'fcmel', 'dcttype', 1, 'usecmp', 1, 'wintime', 0.025, 'hoptime', 0.010, 'preemph', 0.97, 'dither', 1);
-			cep2 = melfcc(speech, fs, 'maxfreq', 3700, 'numcep', 13, 'nbands', 20, 'fbtype', 'fcmel', 'dcttype', 1, 'usecmp', 1, 'wintime', 0.025, 'hoptime', 0.010, 'preemph', 0.97, 'dither', 1, 'useenergy', 1);
+			cep2 = melfcc(speech, fs, 'maxfreq', 8000, 'numcep', 13, 'nbands', 20, 'fbtype', 'fcmel', 'dcttype', 1, 'usecmp', 1, 'wintime', 0.025, 'hoptime', 0.010, 'preemph', 0.97, 'dither', 1, 'useenergy', 1);
 			del1 = deltas(cep2);
 			%del2 = deltas(deltas(cep2,5),5);
 			del2 = deltas(deltas(cep2));	% use default w: 9
@@ -102,7 +102,7 @@ function feat = mfcc_extract_features( filepath, toolbox, start_frame, end_frame
 			%% update July 18, support rootsift-like feature
 			if ~isempty(feat),
 				sift = double(feat);
-				feat = single(sqrt(sift./repmat(sum(sift), 39, 1)));
+				feat = sign(sift) .* sqrt(abs(sift)./repmat(sum(abs(sift)), 39, 1));
 			end
 		end
 		
