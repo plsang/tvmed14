@@ -39,28 +39,26 @@ function [frames, descrs] = sift_extract_features( img_path, sift_algo, param )
 			
 				
 		case 'phow'
-            obj.verbose = false;
-            obj.sizes = [4 6 8 10];
-            obj.fast = true;
-            obj.step = 3;
+            
 			if exist('param', 'var'),
-				obj.color = param;
+				color = param;
 			else
-				obj.color = 'gray';
+				color = 'gray';
 			end
-            obj.contrast_threshold = 0.005;
-            obj.window_size = 1.5;
-            obj.magnif = 6;
-            obj.float_descriptors = false;
-			
+            
 			try
 				im = imread(img_path);
-				im = standardizeImage(im); 
-				[frames, descrs] = vl_phow(im, 'Verbose', obj.verbose, ...
-					'Sizes', obj.sizes, 'Fast', obj.fast, 'step', obj.step, ...
-					'Color', obj.color, 'ContrastThreshold', obj.contrast_threshold, ...
-					'WindowSize', obj.window_size, 'Magnif', obj.magnif, ...
-					'FloatDescriptors', obj.float_descriptors);
+				[frames, descrs] = vl_phow(im2single(im), 'Color', color);
+				
+				if ~isempty(descrs),
+					sift = double(descrs);
+					descrs = single(sqrt(sift./repmat(sum(sift), 128, 1)));
+					
+					if any(isnan(descrs(:))),
+						error ('Image feature of file <%s> contains NaN\n', img_path);
+					end
+				end
+			
 			catch
 				frames = [];
 				descrs = [];
