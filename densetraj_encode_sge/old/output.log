@@ -1,0 +1,51 @@
+Fri Jun 27 19:07:37 JST 2014
+[bc307.hpc.vpl.nii.ac.jp] [1057287] [matlab -nodisplay -r densetraj_encode_sge( 'idt', 'video-bg', 1, 1)]
+/net/per610a/export/das11f/plsang/codes/kaori-secode-med14
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2009 The MathWorks, Inc.
+                Version 7.9.0.529 (R2009b) 64-bit (glnxa64)
+                              August 12, 2009
+
+ 
+  To get started, type one of these: helpwin, helpdesk, or demo.
+  For product information, visit www.mathworks.com.
+ 
+Loading basic metadata...
+Loading metadata...
+ [1 --> 1 --> 1] Extracting & Encoding for [HVC000025]...
+Fri Jun 27 19:10:42 JST 2014
+Mon Jul  7 14:52:40 JST 2014
+[bc313.hpc.vpl.nii.ac.jp] [1064742] [matlab -nodisplay -r densetraj_encode_sge( 'idt', 'video-bg', 1, 1)]
+/net/per610a/export/das11f/plsang/codes/kaori-secode-med14
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2009 The MathWorks, Inc.
+                Version 7.9.0.529 (R2009b) 64-bit (glnxa64)
+                              August 12, 2009
+
+ 
+  To get started, type one of these: helpwin, helpdesk, or demo.
+  For product information, visit www.mathworks.com.
+ 
+Loading basic metadata...
+Loading metadata...
+File [/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/densetraj.mbh.idt.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC000025.mat] already exist. Skipped!!
+Mon Jul  7 14:52:52 JST 2014
+Mon Jul  7 14:53:10 JST 2014
+[bc305.hpc.vpl.nii.ac.jp] [1064743] [matlab -nodisplay -r densetraj_encode_sge( 'idt', 'video-bg', 1, 1)]
+/net/per610a/export/das11f/plsang/codes/kaori-secode-med14
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2009 The MathWorks, Inc.
+                Version 7.9.0.529 (R2009b) 64-bit (glnxa64)
+                              August 12, 2009
+
+ 
+  To get started, type one of these: helpwin, helpdesk, or demo.
+  For product information, visit www.mathworks.com.
+ 
+Loading basic metadata...
+Loading metadata...
+File [/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/densetraj.mbh.idt.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC000025.mat] already exist. Skipped!!
+Mon Jul  7 14:53:21 JST 2014
