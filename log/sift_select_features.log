@@ -9,3 +9,12 @@
 [2014/06/30 15:45:41] Start running sift_select_features(fspace, hesaff)
 [2014/06/30 15:47:05] Start running sift_select_features(fspace, hesaff)
 [2014/06/30 16:07:55] Finish running sift_select_features(fspace, hesaff). Elapsed time: 00:20:49
+[2014/07/24 19:19:32] Start running sift_select_features(phow, gray)
+[2014/07/24 19:50:31] Start running sift_select_features(phow, gray)
+[2014/07/24 20:26:47] Finish running sift_select_features(phow, gray). Elapsed time: 00:36:16
+[2014/07/25 12:01:39] Start running sift_select_features(phow, gray)
+[2014/07/25 14:43:07] Finish running sift_select_features(phow, gray). Elapsed time: 02:41:27
+[2014/07/25 16:27:07] Start running sift_select_features(phow, gray)
+[2014/07/25 16:27:55] Start running sift_select_features(phow, gray)
+[2014/07/25 16:29:35] Start running sift_select_features(phow, gray)
+[2014/07/25 19:10:16] Finish running sift_select_features(phow, gray). Elapsed time: 02:40:41
