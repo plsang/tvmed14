@@ -1,4 +1,4 @@
-function sift_select_features( sift_algo, param )
+function sift_select_features( sift_algo, param, version )
 %SELECT_FEATURES Summary of this function goes here
 %   Detailed explanation goes here
 	% nSize: step for dense sift
@@ -7,6 +7,10 @@ function sift_select_features( sift_algo, param )
 	%%
 
 	set_env;
+	
+	if ~exist('version', 'var'),
+		version = 'v14.2';  %% using both event video + bg video
+	end
 	
     max_features = 1000000;
 	video_sampling_rate = 1;
@@ -25,18 +29,6 @@ function sift_select_features( sift_algo, param )
 	metadata = metadata_.metadata;
 	
     kf_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/keyframes';
-	
-    % csv_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/MEDDATA/databases';
-	% eventbg_csv = 'EVENTS-BG_20130405_ClipMD.csv';
-	% f_eventvideo_csv = 'EVENTS-130Ex_20130405_ClipMD.csv';
-
-	% f_eventvideo_csv = fullfile(csv_dir,f_eventvideo_csv);	
-	% f_eventbg_csv = fullfile(csv_dir, eventbg_csv);
-	
-	% list_eventvideo = load_video_list(f_eventvideo_csv);
-	% list_bgvideo = load_video_list(f_eventbg_csv);
-	
-	% list_video = [list_eventvideo, list_bgvideo];
 	
 	fprintf('Loading metadata...\n');
 	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
@@ -57,7 +49,8 @@ function sift_select_features( sift_algo, param )
     
     feats = cell(length(selected_videos), 1);
 
-	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.bg.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), max_features);
+	%output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), max_features);
+	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.%s.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), version, max_features);
 	if exist(output_file),
 		fprintf('File [%s] already exist. Skipped\n', output_file);
 		return;
@@ -87,7 +80,7 @@ function sift_select_features( sift_algo, param )
             
             % if more than 50% of points are empty --> possibley empty image
             if isempty(descrs) || sum(all(descrs == 0, 1)) > 0.5*size(descrs, 2),
-                warning('Maybe blank image...[%s]. Skipped!\n', img_name);
+                %warning('Maybe blank image...[%s]. Skipped!\n', img_name);
                 continue;
             end
 			feat = [feat descrs];
