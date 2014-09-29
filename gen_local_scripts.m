@@ -1,4 +1,4 @@
-function gen_local_scripts(script_name, pattern, total_jobs, num_job, start_num, machine, wait_num)
+function gen_local_scripts(script_name, pattern, total_jobs, num_job, wait_num, start_num, machine)
 	
 	script_dir = '/net/per610a/export/das11f/plsang/codes/kaori-secode-med14.2';
 	

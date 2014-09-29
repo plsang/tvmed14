@@ -8,6 +8,10 @@ function sift_select_features( sift_algo, param )
 
 	set_env;
 	
+	if ~exist('version', 'var'),
+		version = 'v14.2';  %% using both event video + bg video
+	end
+	
     max_features = 1000000;
 	video_sampling_rate = 1;
     sample_length = 5; % frames
@@ -57,7 +61,8 @@ function sift_select_features( sift_algo, param )
     
     feats = cell(length(selected_videos), 1);
 
-	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.bg.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), max_features);
+	%output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), max_features);
+	output_file = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/feature/bow.codebook.devel/%s.%s.%s.sift/data/selected_feats_%d.mat', sift_algo, num2str(param), version, max_features);
 	if exist(output_file),
 		fprintf('File [%s] already exist. Skipped\n', output_file);
 		return;
@@ -87,7 +92,7 @@ function sift_select_features( sift_algo, param )
             
             % if more than 50% of points are empty --> possibley empty image
             if isempty(descrs) || sum(all(descrs == 0, 1)) > 0.5*size(descrs, 2),
-                warning('Maybe blank image...[%s]. Skipped!\n', img_name);
+                %warning('Maybe blank image...[%s]. Skipped!\n', img_name);
                 continue;
             end
 			feat = [feat descrs];

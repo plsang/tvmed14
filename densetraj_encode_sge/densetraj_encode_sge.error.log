@@ -1,0 +1,2040 @@
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC269649.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC105624.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC050796.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC142271.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC026218.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC189948.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC113303.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC080708.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC271397.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC072059.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC242002.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC371898.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC385260.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC362453.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC248567.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC261136.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC034969.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC135029.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC313428.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC047271.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC413920.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC072030.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC200147.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC224582.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC385237.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC208249.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC269596.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC169045.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC393636.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC501251.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC377956.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC277670.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC346894.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC026896.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC033829.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC102785.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC210680.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC516645.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC009781.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC008311.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC355849.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC010193.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC397298.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC507698.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC405681.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC497206.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC208874.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC338842.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC215081.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC240525.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC070610.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC213646.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC258313.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC204730.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC247333.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC162724.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC067756.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC510710.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC003845.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC234346.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC174673.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC499323.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC574639.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC272901.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC189315.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC060249.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC316815.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC029215.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC124351.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC064139.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC134346.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC037771.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC141021.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC007610.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC281743.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC354788.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC231680.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC155454.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC264334.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC078089.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC344490.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC404574.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC016629.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC384428.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC223845.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC316676.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC042368.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC266210.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC033659.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC274427.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC064156.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC037939.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC335601.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC490411.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC346203.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC025312.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC030000.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC072568.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC189543.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC498416.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC337660.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC023618.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC344706.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC274935.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC056209.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC077447.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC278908.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC312651.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC355680.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC251454.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC020442.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC000947.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC060253.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC395180.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC059691.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC337177.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC050070.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC175885.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC239997.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC378719.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC128378.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC344501.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC112292.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC586474.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC384493.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC031406.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC009532.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC346084.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC011267.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC164723.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC002012.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC030949.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC006109.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC153940.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC187182.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC190470.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC002761.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC252805.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC037801.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC317857.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC510956.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC002930.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC313846.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC060707.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC327410.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC124331.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC323076.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC081337.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC036580.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC149427.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC088452.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC282123.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC355701.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC066695.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC575520.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> par_save at 7
+         mkdir(output_dir);
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC006445.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC204633.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC254008.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC222294.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC274977.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC219637.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC115703.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC048473.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC329115.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC330494.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC215555.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC251722.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC193337.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC079956.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC029653.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC403562.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC211263.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC495577.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC050295.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Error using ==> save
+Unable to write file
+/net/per610a/export/das11f/plsang/trecvidmed13/feature/video-bg/idensetraj.hoghofmbh.cb256.fc.pca/LDC2011E41/MED11EvaluationData/video/MED11TEST/HVC366091.mat:
+permission denied.
+
+Error in ==> par_save at 10
+     save( output_file, 'code');
+
+Error in ==> densetraj_encode_sge at 118
+		par_save(output_file, code);
+} 
+{??? Undefined function or method 'densetraj_extract_and_encode_hoghofmbh' for
+input arguments of type 'struct'.
+
+Error in ==> densetraj_encode_sge at 114
+
+} 
+{??? Undefined function or method 'densetraj_extract_and_encode_hoghofmbh' for
+input arguments of type 'struct'.
+
+Error in ==> densetraj_encode_sge at 114
+
+} 
+{??? Undefined function or method 'densetraj_extract_and_encode_hoghofmbh' for
+input arguments of type 'struct'.
+
+Error in ==> densetraj_encode_sge at 114
+
+} 
+{??? Undefined function or method 'densetraj_extract_and_encode_hoghofmbh' for
+input arguments of type 'struct'.
+
+Error in ==> densetraj_encode_sge at 114
+
+} 
+{??? Undefined function or method 'densetraj_extract_and_encode_hoghofmbh' for
+input arguments of type 'struct'.
+
+Error i{??? Error using ==> mkdir
+Permission denied
+
+Error in ==> densetraj_encode_sge at 44
+        mkdir(output_dir_fc);
+} 
+

@@ -1,0 +1,102 @@
+[2014/09/25 15:59:30] Start running densetraj_encode_sge(video-bg, 3303, 6604)
+[2014/09/25 15:59:32] Start running densetraj_encode_sge(video-bg, 1, 3302)
+[2014/09/25 15:59:54] Start running densetraj_encode_sge(video-bg, 19813, 23114)
+[2014/09/25 15:59:55] Start running densetraj_encode_sge(video-bg, 9907, 13208)
+[2014/09/25 16:00:00] Start running densetraj_encode_sge(video-bg, 13209, 16510)
+[2014/09/25 16:00:00] Start running densetraj_encode_sge(video-bg, 16511, 19812)
+[2014/09/25 16:00:07] Start running densetraj_encode_sge(video-bg, 75947, 79248)
+[2014/09/25 16:00:07] Start running densetraj_encode_sge(video-bg, 42927, 46228)
+[2014/09/25 16:00:07] Start running densetraj_encode_sge(video-bg, 92457, 95758)
+[2014/09/25 16:00:07] Start running densetraj_encode_sge(video-bg, 108967, 112268)
+[2014/09/25 16:00:08] Start running densetraj_encode_sge(video-bg, 59437, 62738)
+[2014/09/25 16:00:08] Start running densetraj_encode_sge(video-bg, 125477, 128778)
+[2014/09/25 16:00:08] Start running densetraj_encode_sge(video-bg, 158497, 161798)
+[2014/09/25 16:00:08] Start running densetraj_encode_sge(video-bg, 141987, 145288)
+[2014/09/25 16:00:08] Start running densetraj_encode_sge(video-bg, 191517, 194818)
+[2014/09/25 16:00:08] Start running densetraj_encode_sge(video-bg, 72645, 75946)
+)
+[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 148591, 151892)
+[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 23115, 26416)
+[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 181611, 184912)
+014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 66041, 69342)
+[2[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 52833, 56134)
+)
+[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 122175, 125476[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 128779, 132080)
+[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 168403, 171704)
+[2014/09/25 16:00:10] Start running densetraj_encode_sge(video-bg, 36323, 39624)
+)
+[2014/09/25 16:00:11] Start running densetraj_encode_sge(video-bg, 69343, 72644)
+)
+[2014/09/25 16:00:09] Start running densetraj_encode_sge(video-bg, 99061, 102362)
+[2014/09/25 16:00:11] Start running densetraj_encode_sge(video-bg, 49531, 52832)
+)
+[2014/09/25 16:00:11] Start running densetraj_encode_sge(video-bg, 178309, 181610)
+[2014/09/25 16:00:11] Start running densetraj_encode_sge(video-bg, 118873, 122174)
+[2014/09/25 16:00:11] Start running densetraj_encode_sge(video-bg, 102363, 105664)
+[2014/09/25 16:00:13] Start running densetraj_encode_sge(video-bg, 184913, 188214)
+[2014/09/25 16:00:12] Start running densetraj_encode_sge(video-bg, 132081, 135382)
+[2014/09/25 16:00:14] Start running densetraj_encode_sge(video-bg, 165101, 168402)
+[2014/09/25 16:02:38] Finish running densetraj_encode_sge(video-bg, 56135, 59436). Elapsed time: 00:02:29
+[2014/09/25 16:03:26] Finish running densetraj_encode_sge(video-bg, 75947, 79248). Elapsed time: 00:03:18
+[2014/09/25 16:03:31] Finish running densetraj_encode_sge(video-bg, 42927, 46228). Elapsed time: 00:03:23
+[2014/09/25 16:08:08] Start running densetraj_encode_sge(video-bg, 42927, 46228)
+[2014/09/25 16:08:54] Finish running densetraj_encode_sge(video-bg, 42927, 46228). Elapsed time: 00:00:45
+[2014/09/25 16:26:55] Finish running densetraj_encode_sge(video-bg, 99061, 102362). Elapsed time: 00:26:40
+[2014/09/25 16:29:10] Finish running densetraj_encode_sge(video-bg, 3303, 6604). Elapsed time: 00:29:39
+[2014/09/25 16:29:17] Finish running densetraj_encode_sge(video-bg, 72645, 75946). Elapsed time: 00:29:07
+[2014/09/25 16:31:49] Finish running densetraj_encode_sge(video-bg, 52833, 56134). Elapsed time: 00:31:37
+[2014/09/25 16:32:15] Finish running densetraj_encode_sge(video-bg, 46229, 49530). Elapsed time: 00:32:03
+[2014/09/25 16:33:00] Finish running densetraj_encode_sge(video-bg, 178309, 181610). Elapsed time: 00:32:45
+[2014/09/25 16:33:22] Finish running densetraj_encode_sge(video-bg, 79249, 82550). Elapsed time: 00:33:08
+[2014/09/25 16:33:37] Finish running densetraj_encode_sge(video-bg, 105665, 108966). Elapsed time: 00:33:28
+[2014/09/25 16:33:46] Finish running densetraj_encode_sge(video-bg, 9907, 13208). Elapsed time: 00:33:50
+[2014/09/25 16:34:34] Finish running densetraj_encode_sge(video-bg, 23115, 26416). Elapsed time: 00:34:22
+[2014/09/25 16:34:37] Finish running densetraj_encode_sge(video-bg, 49531, 52832). Elapsed time: 00:34:22
+[2014/09/25 16:34:45] Finish running densetraj_encode_sge(video-bg, 26417, 29718). Elapsed time: 00:34:34
+[2014/09/25 16:34:46] Finish running densetraj_encode_sge(video-bg, 175007, 178308). Elapsed time: 00:34:36
+[2014/09/25 16:34:55] Finish running densetraj_encode_sge(video-bg, 6605, 9906). Elapsed time: 00:35:24
+[2014/09/25 16:35:39] Finish running densetraj_encode_sge(video-bg, 102363, 105664). Elapsed time: 00:35:24
+[2014/09/25 16:35:54] Finish running densetraj_encode_sge(video-bg, 82551, 85852). Elapsed time: 00:35:39
+[2014/09/25 16:35:54] Finish running densetraj_encode_sge(video-bg, 165101, 168402). Elapsed time: 00:35:39
+[2014/09/25 16:36:11] Finish running densetraj_encode_sge(video-bg, 171705, 175006). Elapsed time: 00:35:59
+[2014/09/25 16:38:26] Finish running densetraj_encode_sge(video-bg, 36323, 39624). Elapsed time: 00:38:12
+[2014/09/25 16:40:12] Finish running densetraj_encode_sge(video-bg, 168403, 171704). Elapsed time: 00:39:58
+[2014/09/25 16:42:41] Finish running densetraj_encode_sge(video-bg, 132081, 135382). Elapsed time: 00:42:26
+[2014/09/25 16:43:19] Finish running densetraj_encode_sge(video-bg, 184913, 188214). Elapsed time: 00:43:04
+[2014/09/25 16:43:21] Finish running densetraj_encode_sge(video-bg, 85853, 89154). Elapsed time: 00:43:08
+[2014/09/25 16:43:31] Finish running densetraj_encode_sge(video-bg, 112269, 115570). Elapsed time: 00:43:17
+[2014/09/25 16:44:29] Finish running densetraj_encode_sge(video-bg, 33021, 36322). Elapsed time: 00:44:17
+[2014/09/25 16:45:54] Finish running densetraj_encode_sge(video-bg, 115571, 118872). Elapsed time: 00:45:42
+[2014/09/25 16:46:03] Finish running densetraj_encode_sge(video-bg, 151893, 155194). Elapsed time: 00:45:48
+[2014/09/25 16:50:41] Finish running densetraj_encode_sge(video-bg, 181611, 184912). Elapsed time: 00:50:29
+[2014/09/25 16:50:43] Finish running densetraj_encode_sge(video-bg, 155195, 158496). Elapsed time: 00:50:31
+[2014/09/25 16:54:28] Finish running densetraj_encode_sge(video-bg, 135383, 138684). Elapsed time: 00:54:16
+[2014/09/25 16:56:06] Finish running densetraj_encode_sge(video-bg, 122175, 125476). Elapsed time: 00:55:54
+[2014/09/25 16:56:09] Finish running densetraj_encode_sge(video-bg, 148591, 151892). Elapsed time: 00:55:58
+[2014/09/25 16:59:08] Finish running densetraj_encode_sge(video-bg, 145289, 148590). Elapsed time: 00:58:53
+[2014/09/25 17:04:12] Finish running densetraj_encode_sge(video-bg, 66041, 69342). Elapsed time: 01:04:00
+[2014/09/25 17:05:01] Finish running densetraj_encode_sge(video-bg, 59437, 62738). Elapsed time: 01:04:52
+[2014/09/25 17:12:25] Finish running densetraj_encode_sge(video-bg, 69343, 72644). Elapsed time: 01:12:10
+[2014/09/25 17:28:39] Finish running densetraj_encode_sge(video-bg, 158497, 161798). Elapsed time: 01:28:30
+[2014/09/25 17:31:33] Finish running densetraj_encode_sge(video-bg, 125477, 128778). Elapsed time: 01:31:24
+[2014/09/25 17:35:25] Finish running densetraj_encode_sge(video-bg, 39625, 42926). Elapsed time: 01:35:15
+[2014/09/25 17:37:25] Finish running densetraj_encode_sge(video-bg, 161799, 165100). Elapsed time: 01:37:10
+[2014/09/25 17:41:47] Finish running densetraj_encode_sge(video-bg, 29719, 33020). Elapsed time: 01:41:35
+[2014/09/25 17:42:10] Finish running densetraj_encode_sge(video-bg, 128779, 132080). Elapsed time: 01:41:55
+[2014/09/25 17:42:26] Finish running densetraj_encode_sge(video-bg, 138685, 141986). Elapsed time: 01:42:13
+[2014/09/25 17:43:09] Finish running densetraj_encode_sge(video-bg, 118873, 122174). Elapsed time: 01:42:54
+[2014/09/25 17:43:33] Finish running densetraj_encode_sge(video-bg, 1, 3302). Elapsed time: 01:43:57
+[2014/09/25 17:43:40] Finish running densetraj_encode_sge(video-bg, 108967, 112268). Elapsed time: 01:43:32
+[2014/09/25 17:45:24] Finish running densetraj_encode_sge(video-bg, 62739, 66040). Elapsed time: 01:45:12
+[2014/09/25 17:45:41] Finish running densetraj_encode_sge(video-bg, 19813, 23114). Elapsed time: 01:45:45
+[2014/09/25 17:46:58] Finish running densetraj_encode_sge(video-bg, 95759, 99060). Elapsed time: 01:46:45
+[2014/09/25 17:49:00] Finish running densetraj_encode_sge(video-bg, 13209, 16510). Elapsed time: 01:48:58
+[2014/09/25 17:49:08] Finish running densetraj_encode_sge(video-bg, 188215, 191516). Elapsed time: 01:48:56
+[2014/09/25 17:50:17] Finish running densetraj_encode_sge(video-bg, 194819, 198118). Elapsed time: 01:50:02
+[2014/09/25 17:50:57] Finish running densetraj_encode_sge(video-bg, 89155, 92456). Elapsed time: 01:50:45
+[2014/09/25 17:53:00] Finish running densetraj_encode_sge(video-bg, 191517, 194818). Elapsed time: 01:52:50
+[2014/09/25 17:56:23] Finish running densetraj_encode_sge(video-bg, 141987, 145288). Elapsed time: 01:56:13
+[2014/09/25 18:04:51] Finish running densetraj_encode_sge(video-bg, 92457, 95758). Elapsed time: 02:04:42
+[2014/09/26 10:29:05] Start running densetraj_encode_sge(video-bg, 1, 3)
+[2014/09/26 10:29:19] Finish running densetraj_encode_sge(video-bg, 1, 3). Elapsed time: 00:00:13
+[2014/09/26 10:33:00] Start running densetraj_encode_sge(video-bg, 1, 12)

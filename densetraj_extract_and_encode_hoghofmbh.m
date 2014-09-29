@@ -8,6 +8,7 @@ function [code_hoghof, code_mbh] = densetraj_extract_and_encode_hoghofmbh( video
 	logfile = sprintf('%s/%s.log', configs.logdir, mfilename);
 	change_perm(logfile);
 	
+	%densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release_vsd/release/DenseTrackStab_HOGHOFMBH';
 	densetraj = 'LD_PRELOAD=/net/per900a/raid0/plsang/usr.local/lib/libstdc++.so /net/per900a/raid0/plsang/tools/improved_trajectory_release/release/DenseTrackStab_HOGHOFMBH';
 	
 	%% fisher initialization
@@ -21,8 +22,8 @@ function [code_hoghof, code_mbh] = densetraj_extract_and_encode_hoghofmbh( video
 	cpp_handle_mbh = mexFisherEncodeHelperSP('init', codebook_mbh, fisher_params);
 	
     % Set up the mpeg audio decode command as a readable stream
-    % cmd = [densetraj, ' ', video_file, ' -S ', num2str(start_frame), ' -E ', num2str(end_frame)];
 	cmd = [densetraj, ' ', video_file];
+	%cmd = [densetraj, ' ', video_file, ' -S ', num2str(start_frame), ' -E ', num2str(end_frame)];
 
     % open pipe
     p = popenr(cmd);
@@ -105,6 +106,8 @@ function [code_hoghof, code_mbh] = densetraj_extract_and_encode_hoghofmbh( video
 	code_hoghof = sign(code_hoghof) .* sqrt(abs(code_hoghof));    
 	code_mbh = sign(code_mbh) .* sqrt(abs(code_mbh));    
     % Close pipe
+	
+	clear X_HOGHOF, X_MBH;
 	
     popenr(p, -1);
 

@@ -15,7 +15,7 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 		change_perm(output_dir);
 	end
 	
-	error_dir = sprintf('%s/error-log', output_dir);
+	error_dir = sprintf('%s/error-evalfull', output_dir);
 	if exist(error_dir, 'file') ~= 7,
 		mkdir(error_dir);
 		change_perm(error_dir);
@@ -24,11 +24,14 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 	output_file = sprintf('%s/%s.qsub.sh', output_dir, file_name);
 	fh = fopen(output_file, 'w');
 	
-	num_max = 200;
+	num_max = 0;%100;
+	if num_max > total_segments,
+		num_max = total_segments;
+	end
 	%num_max = 0;
 	
 	% first 50 videos, 1 vidoe/job
-	num_per_job = 1;
+	num_per_job = 20;
 	
 	if ~exist('start_num', 'var'),
 		start_num = 1;
@@ -44,16 +47,18 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 		
 		params = sprintf(pattern, start_idx, end_idx);
 		%fprintf(fh, 'qsub -e /dev/null -o /dev/null %s %s\n', sge_sh_file, params);
-		error_file = sprintf('%s/%s.error.s%06d_e%06d.log', error_dir, script_name, start_idx, end_idx);
+		%error_file = sprintf('%s/%s.error.s%06d_e%06d.log', error_dir, script_name, start_idx, end_idx);
+		error_file = '/dev/null';
 		
 		fprintf(fh, 'qsub -e %s -o /dev/null %s %s\n', error_file, sge_sh_file, params);
 		
 		if end_idx == total_segments, break; end;
 	end
 	
+	start_num = start_num + num_per_job * num_max;
+	
 	num_per_job = ceil((total_segments - start_num + 1)/num_job);	
 	
-	start_num = start_num + num_max;
 	for ii = 1:num_job,
 		start_idx = start_num + (ii-1)*num_per_job;
 		end_idx = start_num + ii*num_per_job - 1;
@@ -65,8 +70,10 @@ function gen_sge_code(script_name, pattern, total_segments, num_job, start_num)
 		params = sprintf(pattern, start_idx, end_idx);
 		%fprintf(fh, 'qsub -e /dev/null -o /dev/null %s %s\n', sge_sh_file, params);
 		error_file = sprintf('%s/%s.error.s%06d_e%06d.log', error_dir, script_name, start_idx, end_idx);
+		out_file = sprintf('%s/%s.error.s%06d_e%06d.log', error_dir, script_name, start_idx, end_idx);
+		%error_file = '/dev/null';
 		
-		fprintf(fh, 'qsub -e %s -o /dev/null %s %s\n', error_file, sge_sh_file, params);
+		fprintf(fh, 'qsub -e %s -o %s %s %s\n', error_file, out_file, sge_sh_file, params);
 		
 		if end_idx == total_segments, break; end;
 	end

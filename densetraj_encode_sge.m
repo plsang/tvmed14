@@ -21,31 +21,46 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
     video_dir = '/net/per610a/export/das11f/plsang/dataset/MED2013/LDCDIST-RSZ';
 	fea_dir = '/net/per610a/export/das11f/plsang/trecvidmed13/feature';
 	
-	f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat');  % for kinddevel only
+	%f_metadata = sprintf('/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat');  % for kinddevel only
 	
-	fprintf('Loading basic metadata...\n');
-	metadata = load(f_metadata, 'metadata');
-	metadata = metadata.metadata;
+	%fprintf('Loading basic metadata...\n');
+	%metadata = load(f_metadata, 'metadata');
+	%metadata = metadata.metadata;
 	
-	fprintf('Loading metadata...\n');
-	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/medmd.mat';
+	%fprintf('Loading metadata...\n');
+	%medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed14/metadata/medmd_2014_devel_ps.mat';
+	medmd_file = '/net/per610a/export/das11f/plsang/trecvidmed14/metadata/medmd_2014_test_ps.mat';
 	load(medmd_file, 'MEDMD'); 
+	metadata = MEDMD.lookup;
 	
 	%train_clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips, MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
-	train_clips = [MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
-	[train_clips, train_clips_idx] = unique(train_clips);
+	%train_clips = [MEDMD.EventKit.EK130Ex.clips, MEDMD.EventBG.default.clips];
+	%train_clips = [MEDMD.EventKit.EK10Ex.clips, MEDMD.EventKit.EK100Ex.clips];
+	%[train_clips, train_clips_idx] = unique(train_clips);
 	
-	train_clips_durations = [MEDMD.EventKit.EK130Ex.durations, MEDMD.EventBG.default.durations];
-	train_clips_durations = train_clips_durations(train_clips_idx);
-	[train_clips_durations, sorted_train_idx] = sort(train_clips_durations, 'descend');
-	train_clips = train_clips(sorted_train_idx);
+	%train_clips_durations = [MEDMD.EventKit.EK10Ex.durations, MEDMD.EventKit.EK100Ex.durations, MEDMD.EventKit.EK130Ex.durations, MEDMD.EventBG.default.durations];
+	%train_clips_durations = [MEDMD.EventKit.EK130Ex.durations, MEDMD.EventBG.default.durations];
+	%train_clips_durations = [MEDMD.EventKit.EK10Ex.durations, MEDMD.EventKit.EK100Ex.durations];
+	%train_clips_durations = train_clips_durations(train_clips_idx);
+	%[train_clips_durations, sorted_train_idx] = sort(train_clips_durations, 'descend');
+	%train_clips = train_clips(sorted_train_idx);
 	
-	test_clips = MEDMD.RefTest.KINDREDTEST.clips;
-	[test_clips_durations, sorted_test_idx] = sort(MEDMD.RefTest.KINDREDTEST.durations, 'descend');
-	test_clips = test_clips(sorted_test_idx);
+	%test_clips = MEDMD.RefTest.KINDREDTEST.clips;
+	%[test_clips_durations, sorted_test_idx] = sort(MEDMD.RefTest.KINDREDTEST.durations, 'descend');
+	%test_clips = MEDMD.RefTest.MEDTEST.clips;
+	%[test_clips_durations, sorted_test_idx] = sort(MEDMD.RefTest.MEDTEST.durations, 'descend');
+	%test_clips = test_clips(sorted_test_idx);
 	
-	clips = [train_clips, test_clips];
-	durations = [train_clips_durations, test_clips_durations];
+	%research_clips = MEDMD.Research.default.clips; % 10161 clips, ~314 hours
+	%[research_clips_durations, sorted_test_idx] = sort(MEDMD.Research.default.durations, 'descend');
+	%research_clips = research_clips(sorted_test_idx);
+	
+	%clips = [train_clips, test_clips];
+	%durations = [train_clips_durations, test_clips_durations];
+	%clips = research_clips;
+	%durations = research_clips_durations;
+	
+	clips = MEDMD.UnrefTest.PROGAll_PS.clips;
 	
 	codebook_gmm_size = 256;
     
@@ -98,18 +113,27 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
 	
 		video_id = clips{ii};
 	
-        video_file = fullfile(video_dir, metadata.(video_id).ldc_pat);
+		if ~isfield(metadata, video_id),
+			msg = sprintf('Unknown location of video <%s>\n', video_id);
+			logmsg(logfile, msg);
+			continue;
+		end
+		
+        %video_file = fullfile(video_dir, metadata.(video_id).ldc_pat);
+		video_file = fullfile(video_dir, metadata.(video_id));
 		
 		%output_hoghof_file = sprintf('%s/%s/%s.hoghof.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
 		%output_mbh_file = sprintf('%s/%s/%s.mbh.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
-		output_file = sprintf('%s/%s/%s.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
+		%output_file = sprintf('%s/%s/%s.mat', output_dir_fc, fileparts(metadata.(video_id).ldc_pat), video_id);
+		output_file = sprintf('%s/%s/%s.mat', output_dir_fc, fileparts(metadata.(video_id)), video_id);
+		
+		%fprintf(' [%d --> %d --> %d] Extracting & Encoding for [%s], durations %d s...\n', start_seg, ii, end_seg, video_id, durations(ii));
+		fprintf(' [%d --> %d --> %d] Extracting & Encoding for [%s]...\n', start_seg, ii, end_seg, video_id);
 		
         if exist(output_file, 'file'),
             fprintf('File [%s] already exist. Skipped!!\n', output_file);
             continue;
         end
-		
-        fprintf(' [%d --> %d --> %d] Extracting & Encoding for [%s], durations %d s...\n', start_seg, ii, end_seg, video_id, durations(ii));
         
         [code_hoghof, code_mbh] = densetraj_extract_and_encode_hoghofmbh(video_file, codebook_hoghof, low_proj_hoghof, codebook_mbh, low_proj_mbh); %important
         
@@ -118,6 +142,7 @@ function [ output_args ] = densetraj_encode_sge( exp_ann, start_seg, end_seg )
 		par_save(output_file, code, 1); 	
 		%change_perm(output_file);
 		
+		clear code_hoghof, code_mbh, code;
 
     end
     
