@@ -1,0 +1,1 @@
+qsub -e /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.2/edutraj_encode_sge/error.log -o /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.2/edutraj_encode_sge/output.log /net/per610a/export/das11f/plsang/codes/kaori-secode-med14.2/edutraj_encode_sge.sh edu.v1 14662 14708
